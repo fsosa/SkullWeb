@@ -1,5 +1,5 @@
 Skullweb::Application.routes.draw do
-  resources :users, :user_sessions
+  resources :users, :user_sessions, :admins
   match 'login' => 'user_sessions#new', :as => :login
   match 'logout' => 'user_sessions#destroy', :as => :logout
   

@@ -1,0 +1,8 @@
+<h1> Assign House Jobs </h1>
+
+<%= form_for @userhj, :url =>{:action => :create} do |f| %>
+<%= collection_select(:user, :id, @users, :id, :fullname)  %>
+<%= collection_select(:house_job, :id, @hjs, :id, :description) %>
+<%= f.submit "Submit" %>
+<%end%>
+

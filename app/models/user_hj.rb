@@ -16,6 +16,5 @@ class UserHj < ActiveRecord::Base
 
 validates :assigned_user_id, :presence => true
 validates :hj_id, :presence => true
-validates :due, :presence => true
 
 end

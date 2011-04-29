@@ -2,18 +2,23 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.xml
   def index
+	if(!require_admin)
+		return
+	end
     @users = User.all
 
     respond_to do |format|
       format.html # index.html.erb
-      format.xml  { render :xml => @users }
+      #format.xml  { render :xml => @users }
     end
   end
 
   # GET /users/1
   # GET /users/1.xml
   def show
-	require_user
+	if(!require_admin)
+		return
+	end
     @user = User.find(params[:id])
 
     respond_to do |format|

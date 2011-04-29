@@ -18,9 +18,19 @@ class ApplicationController < ActionController::Base
   def require_user
 	unless current_user
 	  store_location
-	  redirect_to :login, :notice => "You are not currently logged in"
+	  #consider adding notice mentioning that the user must be logged in
+	  redirect_to (:login)
 	  return false
 	end
+  end
+  
+  def require_admin
+	unless current_user.admin
+	  store_location
+	  redirect_to :root, :notice => "Access denied: Administrator-only page"
+	  return false
+	end
+	return true
   end
 	
   def store_location
