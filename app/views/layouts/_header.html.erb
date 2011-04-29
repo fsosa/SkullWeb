@@ -2,7 +2,7 @@
 	
 	<div id="login">  
 	<% if current_user %>
-		<%= link_to "Edit Profile", edit_user_path(current_user.id) %> |
+		<%= link_to "#{current_user.first_name} #{current_user.last_name}", edit_user_path(current_user.id) %> |
 		<%= link_to "Logout", :logout %>
 	<% else %>              
 		<%= link_to "Register", new_user_path %> |
@@ -11,7 +11,13 @@
 	</div>
 	
 	<h1>
-		<a href="/">SkullWeb</a><span> / House Jobs</span>
+		<a href="/">SkullWeb</a><span> / 
+		<% if params[:controller] == 'hj' -%>
+			House Jobs
+		<% else -%>
+			Room Reservations
+		<% end -%>
+		</span>
 	</h1>
 	
 </div>
@@ -21,11 +27,11 @@
 	<ul>
 		
 		<li>
-			<a href="/hj" class="<%= nav %>">House Jobs</a>
+			<a href="/hj" <%= activate("hj") %> >House Jobs</a>
 		</li>
 		
 		<li>
-			<a href="/room" class="<%= nav %>">Room Reservations</a>
+			<a href="/room" <%= activate('room') %> >Room Reservations</a>
 		</li>
 		
 	</ul>

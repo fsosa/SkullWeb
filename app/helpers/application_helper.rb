@@ -1,11 +1,9 @@
 module ApplicationHelper
 
-def nav
-	if params[:controller] == "hj"
-		return "active"
-	else
-		puts 'what'
-	end
+def activate(nav)
+  if params[:controller]  == nav
+	return 'class=active'
+  end
 end
 
 end
