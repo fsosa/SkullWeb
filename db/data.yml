@@ -1,0 +1,81 @@
+
+--- 
+house_jobs: 
+  columns: 
+  - id
+  - description
+  - created_at
+  - updated_at
+  records: 
+  - - 1
+    - Clean IRDF and weight room
+    - 2011-04-29 07:26:38.349303
+    - 2011-04-29 07:26:38.349303
+  - - 2
+    - Vacuum 3rd floor and below
+    - 2011-04-29 07:26:48.241869
+    - 2011-04-29 07:26:48.241869
+  - - 3
+    - Sweep and mop basement and 2nd floor bathrooms
+    - 2011-04-29 07:27:00.689581
+    - 2011-04-29 07:27:00.689581
+  - - 4
+    - Sweep and mop 3rd floor bathroom
+    - 2011-04-29 07:27:10.730155
+    - 2011-04-29 07:27:10.730155
+  - - 5
+    - Sweep and mop 4th floor bathroom
+    - 2011-04-29 07:27:19.177638
+    - 2011-04-29 07:27:19.177638
+  - - 6
+    - Sweep and mop 5th floor bathroom and laundry room
+    - 2011-04-29 07:27:32.961427
+    - 2011-04-29 07:27:32.961427
+  - - 7
+    - Sweep and mop inner dining and clean up cereal table
+    - 2011-04-29 07:27:47.386252
+    - 2011-04-29 07:27:47.386252
+  - - 8
+    - Sweep and mop outer dining and 1st floor foyer
+    - 2011-04-29 07:27:57.041804
+    - 2011-04-29 07:27:57.041804
+  - - 9
+    - Sweep and mop basement pit and VIP lounge
+    - 2011-04-29 07:28:51.969946
+    - 2011-04-29 07:28:51.969946
+  - - 10
+    - Sweep and mop lower and upper kitchens
+    - 2011-04-29 07:29:00.505434
+    - 2011-04-29 07:29:00.505434
+  - - 11
+    - Clean and vacuum music and chapter room
+    - 2011-04-29 07:29:17.091383
+    - 2011-04-29 07:29:17.091383
+  - - 12
+    - Vacuum 3rd to 5th floor
+    - 2011-04-29 07:29:29.219076
+    - 2011-04-29 07:29:29.219076
+  - - 13
+    - Clean and restock basement and 2nd floor bathrooms
+    - 2011-04-29 07:29:37.970577
+    - 2011-04-29 07:29:37.970577
+  - - 14
+    - Clean and restock 3rd floor bathroom
+    - 2011-04-29 07:29:48.099156
+    - 2011-04-29 07:29:48.099156
+  - - 15
+    - Clean and restock 4th floor bathroom
+    - 2011-04-29 07:29:59.962835
+    - 2011-04-29 07:29:59.962835
+  - - 16
+    - Clean and restock 5th floor bathroom
+    - 2011-04-29 07:30:25.011267
+    - 2011-04-29 07:30:25.011267
+  - - 17
+    - Take out 3rd to 5th floor trash
+    - 2011-04-29 07:30:40.963180
+    - 2011-04-29 07:30:40.963180
+  - - 18
+    - Take out basement to 2nd floor trash
+    - 2011-04-29 07:30:57.875147
+    - 2011-04-29 07:30:57.875147

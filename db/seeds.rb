@@ -5,3 +5,12 @@
 #
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Mayor.create(:name => 'Daley', :city => cities.first)
+namespace :seed_data do
+  desc 'Load seed data into the database of the current environment'
+  task :load => :environment do
+	require 'active_record/fixtures'
+	Dir.glob(RAILS_ROOT + '/db/seed/data/*.yml').each do |file|
+	  Fixtures.create_fixtures('db/seed_data', File.basename(file, '.*'))
+	end
+  end
+end
