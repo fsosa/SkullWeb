@@ -1,27 +1,19 @@
-# == Schema Information
-# Schema version: 20110429021036
-#
-# Table name: users
-#
-#  id         :integer         not null, primary key
-#  username   :string(255)
-#  prettyname :string(255)
-#  password   :string(255)
-#  isAdmin    :boolean
-#  created_at :datetime
-#  updated_at :datetime
-#
-
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 one:
   username: MyString
-  prettyname: MyString
-  password: MyString
-  isAdmin: false
+  first_name: MyString
+  last_name: MyString
+  email: MyString
+  crypted_password: MyString
+  password_salt: MyString
+  persistence_token: MyString
 
 two:
   username: MyString
-  prettyname: MyString
-  password: MyString
-  isAdmin: false
+  first_name: MyString
+  last_name: MyString
+  email: MyString
+  crypted_password: MyString
+  password_salt: MyString
+  persistence_token: MyString
