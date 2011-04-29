@@ -13,4 +13,9 @@ class HouseJob < ActiveRecord::Base
 
 validates :description, :presence => true
 
+def desc
+  return "#{description}"
+end
+
+
 end

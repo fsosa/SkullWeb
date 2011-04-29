@@ -4,6 +4,7 @@ Skullweb::Application.routes.draw do
   match 'logout' => 'user_sessions#destroy', :as => :logout
   
   match '/hj', :to => 'hj#index'
+  match '/hj/completeJob', :to => 'hj#completeJob'
   match '/room', :to => 'room#index'
   root :to => 'hj#index'
 	

@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   helper :all
-  helper_method :current_user
+  helper_method :current_user, :isComplete?
   
   private
   
@@ -25,7 +25,7 @@ class ApplicationController < ActionController::Base
   end
   
   def require_admin
-	unless current_user.admin
+	unless current_user && current_user.admin
 	  store_location
 	  redirect_to :root, :notice => "Access denied: Administrator-only page"
 	  return false
@@ -36,4 +36,19 @@ class ApplicationController < ActionController::Base
   def store_location
     session[:return_to] = request.request_uri
   end
+  
+  def isComplete?(hj)
+	id = current_user.id
+	hj = HouseJob.find(:all, :conditions => {:description => hj})[0]
+	uhj = UserHj.find(:all, :conditions => {:assigned_user_id =>  id, :hj_id => hj.id})
+	if uhj != nil
+		uhj.each do |u|
+			if u.isComplete == true
+				return 'done'
+			else
+				return 'undone'
+			end
+		end
+	end
+end
 end

@@ -1,1 +1,38 @@
-<p> house job data <p>
+	<div id="week_nav">
+		<ul>
+			<li><a href="">&laquo; Previous week</a></li>
+			<li><a href="" id="calendar">This Week</a></li>
+			<li><a href="">Next week &raquo;</a></li>
+		</ul>
+	</div>
+	
+	<h2> Week of May 1 </h2>
+	
+	<div class="overview_day">
+		<h3> Due Wednesday, May 4th </h3>
+		<table id="hj_wed13" class="hj_table">
+			<colgroup width="20%"></colgroup>
+			<colgroup width="60%"></colgroup>
+		<thead>
+			<th>Name</th>
+			<th>Job</th>
+		</thead>
+		<tbody>
+		<% @uhjs.each do |uhjs| -%>
+			<% if current_user.fullname == uhjs[0] -%>
+				<tr class="my_row <%= isComplete?(uhjs[1]) %>">
+					<td id="my_name"><a id="empty_check"><img id="check" src="/images/empty_check.png" width=15px height=15px/>
+					<%=uhjs[0]%></td>
+					<td id="my_job"><%=uhjs[1]%></td>
+				</tr>
+			<% else -%>
+				<tr>
+					<td><%= uhjs[0] %></td>
+					<td><%= uhjs[1] %></td>
+				</tr>
+			<% end -%>
+		<% end -%>
+		</tbody>
+		</table>
+		
+	</div>           

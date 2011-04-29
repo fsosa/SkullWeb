@@ -240,7 +240,7 @@ a.name {
 }
 
 
-#my_row
+.my_row
 {
 	background: #FDD;
 }
@@ -262,3 +262,11 @@ label{float: left; clear: left; width: 7em;}
 -o-user-select: none;
 user-select: none;
 } 
+
+.done {
+background-color: rgb(221, 255, 255);
+}
+
+.undone{
+background-color: rgb(255, 221, 221);
+}
