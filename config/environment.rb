@@ -5,4 +5,3 @@ require File.expand_path('../application', __FILE__)
 Skullweb::Application.initialize!
 
 # Add Authlogic Dependency
-config.gem "authlogic"
