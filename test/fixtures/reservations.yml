@@ -1,0 +1,30 @@
+# == Schema Information
+# Schema version: 20110429022730
+#
+# Table name: reservations
+#
+#  id               :integer         not null, primary key
+#  reserved_user_id :integer
+#  name             :string(255)
+#  location         :string(255)
+#  start            :datetime
+#  end              :datetime
+#  created_at       :datetime
+#  updated_at       :datetime
+#
+
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  reserved_user_id: 1
+  name: MyString
+  location: MyString
+  start: 2011-04-28 22:27:31
+  end: 2011-04-28 22:27:31
+
+two:
+  reserved_user_id: 1
+  name: MyString
+  location: MyString
+  start: 2011-04-28 22:27:31
+  end: 2011-04-28 22:27:31

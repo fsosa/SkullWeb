@@ -1,0 +1,264 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #ccc;
+    font: 13px/1.4em "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+}
+
+#main {
+    width: 850px;
+    margin: 0 auto 30px;
+}
+
+#header {
+    padding: 30px 0;
+    position: relative;
+}
+#header h1 {
+    font-size: 36px;
+    font-weight: bold;
+}
+#header h1 span {
+    font-weight: normal;
+}
+#header h1 a {
+    text-decoration: none;
+    color: #000;
+}
+#header h1 a:hover {
+    text-decoration: underline;
+}
+
+#header #login {
+    float: right;
+    text-align: right;
+    font-size: 12px;
+    color: #666;
+}
+
+/* #### MAIN NAV #### */
+
+#main_nav {
+    background: #999;
+}
+#main_nav ul {
+    overflow: auto;
+}
+#main_nav ul li {
+    list-style: none;
+    float: left;
+}
+#main_nav ul li a {
+    display: block;
+    padding: 10px 20px;
+    color: #333;
+    text-shadow: 1px 1px 1px #ccc;
+    font-size: 12px;
+    text-decoration: none;
+}
+#main_nav ul li a:hover {
+    text-decoration: underline;
+}
+#main_nav ul li a.active {
+    background: #fff;
+    color: #000;
+}
+
+/* #### SECONDARY NAV #### */
+
+#secondary_nav {
+    background: #eee;
+    margin-bottom: 20px;
+}
+#secondary_nav ul {
+    overflow: auto;
+}
+#secondary_nav ul li {
+    list-style: none;
+    float: left;
+}
+#secondary_nav ul li a {
+    display: block;
+    padding: 10px 20px;
+    color: #333;
+    text-shadow: 1px 1px 1px #ccc;
+    font-size: 12px;
+    text-decoration: none;
+}
+#secondary_nav ul li a:hover {
+    text-decoration: underline;
+}
+#secondary_nav ul li a.active {
+    background: #ccc;
+    color: #000;
+}
+
+/* #### WEEK NAV #### */
+
+#week_nav {
+    float: right;
+}
+#week_nav ul {
+    overflow: auto;
+}
+#week_nav ul li {
+    list-style: none;
+    float: left;
+}
+#week_nav ul li a {
+    display: block;
+    margin-left: 10px;
+    color: #000;
+    font-size: 12px;
+}
+
+#week_nav a#calendar span { display: none; }
+
+#content {
+    background: #fff;
+    padding: 20px;
+}
+#content h2 {
+    font-size: 24px;
+    font-weight: normal;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 20px;
+}
+#content h3 {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+#content ul {
+    margin-bottom: 20px;
+    list-style: none;
+}
+#content ul:last-child {
+    margin-bottom: 0;
+}
+
+a.name {
+    color: #000;
+}
+
+.overview_day {
+    padding: 10px;
+    margin: 10px 0;
+}
+.wd_calendar_week {
+    list-style: none;
+    overflow: auto;
+}
+.wd_calendar_day {
+    border: 0px solid #ddd;
+    float: left;
+    width: 140px;
+    height: 140px;
+    padding: 10px;
+}
+.wd_calendar_day ul.assignments span.type {
+    font-weight: bold;
+}
+.wd_calendar_day ul.assignments a.claim {
+    color: #888;
+    font-style: italic;
+}
+.wd_calendar_day div.no_assignments {
+    background: #eee;
+    padding: 10px;
+    font-style: italic;
+    color: #888;
+    margin-right: 20px;
+}
+.today { background: #fafadd; }
+
+.assignment {
+    color: #999;
+}
+.assignment.mine { background: #ddffff; }
+.assignment.done.mine { background: #ddffdd; }
+.assignment.overdue.mine { background: #ffdddd; }
+.assignment .job {
+    color: #006;
+    font-size: 14px;
+    font-weight: bold;
+}
+.assignment.done .job { color: #060; }
+.assignment.overdue .job { color: #600; }
+
+#templates { display: none; }
+
+#messages p {
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid #888;
+    font-style: italic;
+    font-size: 14px;
+}
+#messages p.info { background: #ddffff; }
+#messages p.success { background: #deffde; }
+#messages p.sorry { background: #ffefde; }
+#messages p.error { background: #661510; color: #fff; }
+
+/**ADDED**/
+.rsvp_table, .hj_table
+{
+	background: #fff;
+	margin: 20px;
+	width: 80%;
+	border-collapse: collapse;
+	text-align: left;
+}
+.rsvp_table th, .hj_table th
+{
+	font-size: 14px;
+	font-weight: normal;
+	padding: 5px 8px;
+	border-bottom: 2px solid black;
+}
+.rsvp_table td, .hj_table td
+{
+	border-bottom: 1px solid #999;
+	color: black;
+	padding: 6px 8px;
+}
+
+/**
+.rsvp_table tbody tr:hover td
+{
+	text-decoration: underline;
+}
+**/
+
+.ev_info td
+{
+	padding-left: 20px;
+}
+
+
+#my_row
+{
+	background: #FDD;
+}
+
+#test
+{
+	vertical-align:bottom;
+}
+fieldset{ padding: 0 1em 1em 1em;}
+legend{font-size: 1.5em; padding: 1em;}
+label{float: left; clear: left; width: 7em;}
+#form_rsvp div{padding: 0 0 0.5em 0;}
+#reser{font-size: 1em;}
+
+#my_row, #check {
+-webkit-user-select: none;
+-khtml-user-select: none;
+-moz-user-select: none;
+-o-user-select: none;
+user-select: none;
+} 
