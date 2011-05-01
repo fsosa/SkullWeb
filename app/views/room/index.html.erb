@@ -72,3 +72,46 @@
 		<%=text_field :descr, :size=> 20%><br />
 		<%=f.submit "Submit"%>
 	<%end%>
+	
+	<div class="overview_day">
+	
+	<h3>PLACEHOLDER DATE:</h3>
+	
+	<table id="rsvp_table_13" class="rsvp_table">
+	
+		<colgroup width="40%"></colgroup>
+		<colgroup width="20%"></colgroup>
+		<colgroup width="20%"></colgroup>
+		
+		<thead>
+			<th scope="col">Event</th>
+			<th scope="col">Room</th>
+			<th scope="col">Time</th>
+		</thead>
+		
+		<tbody>
+		<% @rsvp.each do |r| -%>
+			<tr id="<%=r.id%>">
+				<td>
+					<a id="more_info"><img id="plus-minus" src="/images/plus.png" width=20px height=20px />
+					<%= r.name %>
+				</td>
+				<td>
+					<%= r.location %>
+				</td>
+				<td>
+					<%= r.start_time.strftime("%I:%M %p").gsub(/0?(\d):/,'\1:') %> - <%= r.end_time.strftime("%I:%M %p").gsub(/0?(\d):/,'\1:') %>
+				</td>
+			</tr>
+			<tr class="ev_info" style="display:none">
+				<td colspan="3">
+					Description: <%= r.desc %></br>
+					Reserved by: <%= User.find(r.reserved_user_id).fullname %>
+				</td>
+			</tr>
+		<% end -%>
+		</tbody>
+			
+	</table>
+	
+</div>
