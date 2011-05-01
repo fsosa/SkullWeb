@@ -1,11 +1,9 @@
 // Place your application-specific JavaScript functions and classes here
 // This file is automatically included by javascript_include_tag :defaults
 
-
 $(document).ready(function(){
 	$(".my_row").click(function(){
 		// CHECKMARK CHANGE CODE
-		
 		var myElement = $(this);
 		var classes = myElement.attr('class').split(/\s+/);
 		for(var i = 0; i < classes.length; i++){

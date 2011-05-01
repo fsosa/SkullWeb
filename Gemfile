@@ -4,6 +4,7 @@ gem 'rails', '3.0.7'
 gem 'sqlite3-ruby', '1.3.2', :require => 'sqlite3'
 gem 'authlogic'
 gem 'yaml_db'
+gem 'calendar_date_select'
 
 group :development do
 	gem 'annotate-models', '1.0.4'
