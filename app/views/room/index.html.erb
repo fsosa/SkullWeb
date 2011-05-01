@@ -1,1 +1,72 @@
-<p> yo rooms </p>
+<div id="week_nav">
+		<ul>
+			<li><a href="">&laquo; Previous week</a></li>
+			<li><a href="" id="calendar">This Week</a></li>
+			<li><a href="">Next week &raquo;</a></li>
+		</ul>
+	</div> 
+	
+	<h2> Week of May 1 </h2> 
+	 
+	<%= form_for @userrr, :url =>{:action => :create} do |f| %>
+		<label for="event_name">Event Name:</label><br />
+		<%=text_field :name, :size => 10%><br />
+		
+		<label for="event_location">Location:</label><br />
+		<%=select_tag(:locations, options_for_select(["Chapter Room", 
+			"Music Room", "IRDF Room", "Center Room", "Room 57"]))%><br />
+		<table>
+		<tr>
+		<td>
+		<label for="dp1">Start Date:</label><br/>
+		<input type="text" id="dp1" name="dp1" /><br/>
+       <script type="text/javascript">
+		// <![CDATA[ 	   
+        var opts = {                            
+                formElements:{"dp1":"M-cc-sp-d-sp-Y"} ,
+				//statusFormat:"l-cc-sp-d-sp-F-sp-Y",
+				staticPos:true,
+				constrainSelection:false,
+				finalOpacity:100
+        };        
+        datePickerController.createDatePicker(opts);
+		var myJSON = {"mousewheel":false};
+		datePickerController.setGlobalVars(myJSON);
+		var now=new Date();
+		datePickerController.setSelectedDate("dp1",now.format("yyyymmdd"));
+		// ]]>
+      </script>
+	  <label for="event_time_start">Start Time:</label><br/>
+		<%=text_field :start, :size=> 20%><br />
+	  </td>
+	  
+	  
+	  <td>
+	  <label for="dp2">End Date:</label><br/>
+	  <input type="text" id="dp2" name="dp2" /><br/>
+       <script type="text/javascript">
+		// <![CDATA[ 	   
+        var opts = {                            
+                formElements:{"dp2":"M-cc-sp-d-sp-Y"} ,
+				//statusFormat:"l-cc-sp-d-sp-F-sp-Y",
+				staticPos:true,
+				constrainSelection:false,
+				finalOpacity:100
+        };        
+        datePickerController.createDatePicker(opts);
+		var myJSON = {"mousewheel":false};
+		datePickerController.setGlobalVars(myJSON);
+		var now=new Date();
+		datePickerController.setSelectedDate("dp2",now.format("yyyymmdd"));
+		// ]]>
+      </script>
+	  <label for="event_time_end">End Time:</label><br/>
+		<%=text_field :end, :size=> 20%><br />
+	  </td>
+	  </tr>
+	  </table>
+			
+		<label for="event_description">Description:</label><br/>
+		<%=text_field :descr, :size=> 20%><br />
+		<%=f.submit "Submit"%>
+	<%end%>
