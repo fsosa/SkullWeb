@@ -340,7 +340,7 @@ div.datePicker table tbody td.month-out.date-picker-highlight
 div.datePicker table tbody td.date-picker-highlight,
 div.datePicker table thead th.date-picker-highlight
         {
-        color:#a86666 !important;
+        //color:#a86666 !important;
         }
 /* The "active cursor" style */
 div.datePicker table tbody td.date-picker-hover
