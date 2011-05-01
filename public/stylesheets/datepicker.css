@@ -230,7 +230,7 @@ div.datePicker table
         text-align:center;
         border-spacing:2px;
         padding:0.3em; 
-        width:auto;             
+        width:100px;             
         empty-cells:show;   
         border-radius:0.8em;             
         -moz-border-radius:0.8em;
@@ -247,7 +247,7 @@ div.datePicker table tbody th
         cursor:pointer;
         background:#fff url(../media/gradient-e5e5e5-ffffff.gif) repeat-x 0 -40px;
         width:3em;
-        height:3em;   
+        height:2em;   
         overflow:hidden;      
         outline:transparent none 0px;        
         border:1px solid #ccc;

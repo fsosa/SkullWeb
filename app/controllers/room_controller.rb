@@ -7,7 +7,7 @@ def index
 end
 
 def list_rsvps
-	@rsvp = Reservation.find(:all)
+	@rsvp = Reservation.find(:all, :order => "start_date")
 end
 
 

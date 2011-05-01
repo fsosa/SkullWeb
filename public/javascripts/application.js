@@ -44,6 +44,16 @@ $(document).ready(function(){
 	// RESERVE TABLE REVEAL COMMENTS
 	$(".rsvp_table  a").click(function(){		
 		$(this).parent().parent().next("tr.ev_info").toggle();
+		var src = $(this).children().attr("src"); 
+		
+		if (src == "/images/plus.png"){
+			src = "/images/minus.png";
+		} else {
+			src = "/images/plus.png";
+		}
+		
+		$(this).children().attr("src", src);
+		
 	});
 
 	// WILL NEED TO TAKE THIS OUT LATER
