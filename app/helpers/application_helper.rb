@@ -2,7 +2,7 @@ module ApplicationHelper
 
 def activate(nav)
   if params[:controller]  == nav
-	return 'class=active'
+	return 'active'
   end
 end
 

@@ -4,7 +4,7 @@
 }
 
 body {
-    background: #ccc;
+    background: black;
     font: 13px/1.4em "Helvetica Neue", "Helvetica", "Arial", sans-serif;
 }
 
@@ -26,7 +26,7 @@ body {
 }
 #header h1 a {
     text-decoration: none;
-    color: #000;
+    color: white;
 }
 #header h1 a:hover {
     text-decoration: underline;
@@ -42,7 +42,7 @@ body {
 /* #### MAIN NAV #### */
 
 #main_nav {
-    background: #999;
+    background: #907940;
 }
 #main_nav ul {
     overflow: auto;
@@ -55,7 +55,6 @@ body {
     display: block;
     padding: 10px 20px;
     color: #333;
-    text-shadow: 1px 1px 1px #ccc;
     font-size: 12px;
     text-decoration: none;
 }
@@ -276,3 +275,28 @@ background-color: rgb(255, 221, 221);
 .y{width:3em;}
 #spacer{width:5em;}
 .time{width: 2em;}
+
+#login_div, #login_div label{
+	text-align:center;
+	float: none;
+}
+
+#login_table {
+margin-right:auto;
+margin-left:auto;
+}
+
+#login_header{
+font-size: 28px;
+}
+
+#crest{
+vertical-align:middle;
+}
+
+#prime{
+float:right;
+}
+#2prime{
+float:right;
+}

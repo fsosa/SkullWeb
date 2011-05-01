@@ -12,14 +12,24 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :username %><br />
-    <%= f.text_field :username %>
+	<table id="login_table" cellspacing="10">
+		<colgroup/>
+		<colgroup/>
+		<tr><th colspan="2" id="login_header">Login</th></tr>
+		<tr>
+			<td><%= f.label :username %>: </td>
+			<td><%= f.text_field :username, :size=>18 %>
+		</tr>
   </div>
   <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password %>
+		<tr>
+			<td><%= f.label :password %>: </td>
+			<td><%= f.password_field :password, :size=>18 %></td>
+		</tr>
   </div>
+
   <div class="actions">
-    <%= f.submit "Login" %>
+	<tr><td/><td>
+    <%= f.submit "Login" %></td>
   </div>
 <% end %>
