@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110429054932) do
+ActiveRecord::Schema.define(:version => 20110501152928) do
 
   create_table "house_jobs", :force => true do |t|
     t.string   "description"
@@ -22,10 +22,13 @@ ActiveRecord::Schema.define(:version => 20110429054932) do
     t.integer  "reserved_user_id"
     t.string   "name"
     t.string   "location"
-    t.datetime "start"
-    t.datetime "end"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.date     "start_date"
+    t.date     "end_date"
+    t.time     "start_time"
+    t.time     "end_time"
+    t.string   "desc"
   end
 
   create_table "user_hjs", :force => true do |t|
