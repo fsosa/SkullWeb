@@ -31,9 +31,17 @@
 		// ]]>
       </script>
 	  <label for="event_time_start">Start Time:</label><br/>
-	  <input type="text" id="timestart1" name="timestart1" maxlength="2" class="m"/> :
+	  <input type="text" id="timestart1" name="timestart1" maxlength="2" class="m" /> :
 	  <input type="text" id="timestart2" name="timestart2" maxlength="2" class="m"/>
 	  <%=select_tag(:timestart3, options_for_select(["am","pm"]))%><br />
+	  <script type="text/javascript">
+		// <![CDATA[
+			var time = new Date();
+			$("#timestart1").attr({value: time.format("hh")});
+			$("#timestart2").attr({value: time.format("MM")});
+			$("#timestart3").val(time.format("tt"))
+		// ]]>
+      </script>
 	  </td>
 	  <td id="spacer">
 	  </td>
@@ -64,6 +72,15 @@
 		<input type="text" id="timeend1" name="timeend1" maxlength="2" class="m"/> :
 	  <input type="text" id="timeend2" name="timeend2" maxlength="2" class="m"/>
 	  <%=select_tag(:timeend3, options_for_select(["am","pm"]))%><br />
+	  <script type="text/javascript">
+		// <![CDATA[
+			var time = new Date();
+			$("#timeend1").attr({value: time.format("hh")});
+			$("#timeend2").attr({value: time.format("MM")});
+			console.log(time.format("MM"));
+			$("#timeend3").val(time.format("tt"))
+		// ]]>
+      </script>
 	  </td>
 	  </tr>
 	  </table>
