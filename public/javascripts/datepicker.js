@@ -1079,19 +1079,7 @@ var datePickerController = (function datePickerController() {
                                 
                                 return stopEvent(e);
                                                             
-                        } else if(el.className.search("drag-enabled") != -1) {                                  
-                                o.mx = e.pageX ? e.pageX : e.clientX ? e.clientX : e.x;
-                                o.my = e.pageY ? e.pageY : e.clientY ? e.clientY : e.Y;
-                                o.x  = parseInt(o.div.style.left);
-                                o.y  = parseInt(o.div.style.top);
-                                addEvent(document,'mousemove',o.trackDrag, false);
-                                addEvent(document,'mouseup',o.stopDrag, false);
-                                var b = document.getElementsByTagName("body")[0];
-                                b.className = b.className.replace(/fd-drag-active/g, "") + " fd-drag-active";
-                                o.div.style.zIndex = 10000;
-                                
-                                return stopEvent(e);
-                        };
+                        } 
                         return true;                                                                      
                 }; 
                 this.onclick = function(e) {

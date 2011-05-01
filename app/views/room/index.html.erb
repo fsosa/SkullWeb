@@ -1,39 +1,52 @@
-	<h3> Reserve A Room</h3> 
+	<h2 id="header_rr"> Reserve A Room</h2> 
 	<%= form_for @userrr, :url =>{:action => :create} do |f| %>
-		<label for="event_name">Event Name:</label><br />
-		<%=text_field :name, :size => 10%><br />
-		
-		<label for="event_location">Location:</label><br />
-		<%=select_tag(:locations, options_for_select(["Chapter Room", 
-			"Music Room", "IRDF Room", "Center Room", "Room 57"]))%><br />
-		<table>
+	<table class="reserve_table">
 		<tr>
+		<td></td>
+		<td id="table_name">
+		Event Name</br>
+		<%=text_field :name, :size => 10%>
+		</td>
+		<td></td>
+		</tr>
+		<tr>
+		<td></td>
+		<td id="table_room">
+		Location</br>
+		<%=select_tag(:locations, options_for_select(["Chapter Room", 
+			"Music Room", "IRDF Room", "Center Room", "Room 57"]))%>
+		</td>
+		<td></td>
+		</tr>
+		<tr>
+		<td></td>
 		<td>
-		<label for="dp1">Start Date:</label><br/>
+		Begins On</br>
 		<input type="text" id="m1" name="m1" maxlength="2" class="m"/> /
 		<input type="text" id="d1" name="d1" maxlength="2" class="d"/> /
-		<input type="text" id="y1" name="y1" maxlength="4" class="y"/><br/>
+		<input type="text" id="y1" name="y1" maxlength="4" class="y"/>
+		&nbsp;&nbsp;
        <script type="text/javascript">
 		// <![CDATA[ 	   
         var opts = {                            
                 formElements:{"y1":"Y", "m1":"m", "d1":"d"} ,
-				//statusFormat:"l-cc-sp-d-sp-F-sp-Y",
-				staticPos:true,
+				//staticPos:true,
 				constrainSelection:false,
 				finalOpacity:100,
         };        
         datePickerController.createDatePicker(opts);
-		var myJSON = {"mousewheel":false};
+		var myJSON = {"nodrag":1, "lan":"en", "mousewheel":false};
+		console.log(myJSON);
 		datePickerController.setGlobalVars(myJSON);
 		var now=new Date();
 		datePickerController.setSelectedDate("y1",now.format("yyyymmdd"));
 		datePickerController.dateValidForSelection("y1", now);
 		// ]]>
       </script>
-	  <label for="event_time_start">Start Time:</label><br/>
+	  at&nbsp;&nbsp;&nbsp;
 	  <input type="text" id="timestart1" name="timestart1" maxlength="2" class="time" /> :
 	  <input type="text" id="timestart2" name="timestart2" maxlength="2" class="time"/>
-	  <%=select_tag(:timestart3, options_for_select(["am","pm"]))%><br />
+	  <%=select_tag(:timestart3, options_for_select(["am","pm"]))%>
 	  <script type="text/javascript">
 		// <![CDATA[
 			var time = new Date();
@@ -56,35 +69,36 @@
 		// ]]>
       </script>
 	  </td>
-	  <td id="spacer">
-	  </td>
-	  
+	  <td></td>
+	  </tr>
+	  <tr>
+	  <td></td>
 	  <td>
-	  <label for="dp2">End Date:</label><br/>
+	  Ends On</br>
 	  <input type="text" id="m2" name="m2" maxlength="2" class="m"/> /
 		<input type="text" id="d2" name="d2" maxlength="2" class="d"/> /
-		<input type="text" id="y2" name="y2" maxlength="4" class="y"/><br/>
+		<input type="text" id="y2" name="y2" maxlength="4" class="y"/>
+		&nbsp;&nbsp;
        <script type="text/javascript">
 		// <![CDATA[ 	   
         var opts = {                            
                 formElements:{"y2":"Y", "m2":"m", "d2":"d"} ,
-				//statusFormat:"l-cc-sp-d-sp-F-sp-Y",
-				staticPos:true,
+				//staticPos:true,
 				constrainSelection:false,
 				finalOpacity:100
         };        
         datePickerController.createDatePicker(opts);
-		var myJSON = {"mousewheel":false};
+		var myJSON = {"nodrag":1, "lan":"en", "mousewheel":false};
 		datePickerController.setGlobalVars(myJSON);
 		var now=new Date();
 		datePickerController.setSelectedDate("y2",now.format("yyyymmdd"));
 		datePickerController.dateValidForSelection("y2", now);
 		// ]]>
       </script>
-	  <label for="event_time_end">End Time:</label><br/>
+	  at&nbsp;&nbsp;&nbsp;
 		<input type="text" id="timeend1" name="timeend1" maxlength="2" class="time"/> :
 	  <input type="text" id="timeend2" name="timeend2" maxlength="2" class="time"/>
-	  <%=select_tag(:timeend3, options_for_select(["am","pm"]))%><br />
+	  <%=select_tag(:timeend3, options_for_select(["am","pm"]))%>
 	  <script type="text/javascript">
 		// <![CDATA[
 			var time = new Date();
@@ -107,26 +121,40 @@
 		// ]]>
       </script>
 	  </td>
+	  <td></td>
 	  </tr>
-	  </table>
-			
-		<label for="event_description">Description:</label><br/>
-		<%=text_field :descr, :size=> 20%><br />
+	  <tr>
+	  <td></td>
+		<td>
+		Description</br>
+		<%=text_area :descr, :size=> 20%>
+		</td>
+		</tr>
+		<tr>
+		<td></td>
+		<td>
 		<%=f.submit "Submit"%>
+		</td>
+		<td></td>
+		</tr>
+		</table>
 	<%end%>
+	<div>&nbsp;</br></div>
 	
 	<div class="overview_day">
 	
-	<h3>PLACEHOLDER DATE:</h3>
+	<h3>Upcoming Events:</h3>
 	
-	<table id="rsvp_table_13" class="rsvp_table">
+	<table id="rsvp_table_13" class="rsvp_table tablesorter">
 	
-		<colgroup width="40%"></colgroup>
+		<colgroup width="20%"></colgroup>
+		<colgroup width="20%"></colgroup>
 		<colgroup width="20%"></colgroup>
 		<colgroup width="20%"></colgroup>
 		
 		<thead>
 			<th scope="col">Event</th>
+			<th scope="col">Date</th>
 			<th scope="col">Room</th>
 			<th scope="col">Time</th>
 		</thead>
@@ -137,6 +165,9 @@
 				<td>
 					<a id="more_info"><img id="plus-minus" src="/images/plus.png" width=20px height=20px />
 					<%= r.name %>
+				</td>
+				<td>
+					<%=r.start_date.strftime("%m-%d-%Y") %>
 				</td>
 				<td>
 					<%= r.location %>
@@ -155,5 +186,12 @@
 		</tbody>
 			
 	</table>
-	
+	<script type="text/javascript">
+		// <![CDATA[
+		var myTextExtraction = function(node){ console.log(node.childNodes[3].childNodes[0]);}
+		$("#rsvp_table_13").tablesorter();
+		//$("#rsvp_table_13").tablesorter({headers: {0:{sorter:false},1:{sorter:false},2:{sorter:false},3:{sorter:false}}});
+		//$("#rsvp_table_13").tablesorter({textExtraction: myTextExtraction});
+		// ]]>
+      </script>
 </div>

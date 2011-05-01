@@ -5,7 +5,8 @@
 
 body {
     background: #ccc;
-    font: 13px/1.4em "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+	font-style: "Curlz MT";
+    //font: 13px/1.4em "Helvetica Neue", "Helvetica", "Arial", sans-serif;
 }
 
 #main {
@@ -42,7 +43,7 @@ body {
 /* #### MAIN NAV #### */
 
 #main_nav {
-    background: #999;
+    background: gold;
 }
 #main_nav ul {
     overflow: auto;
@@ -54,7 +55,7 @@ body {
 #main_nav ul li a {
     display: block;
     padding: 10px 20px;
-    color: #333;
+    color: black;
     text-shadow: 1px 1px 1px #ccc;
     font-size: 12px;
     text-decoration: none;
@@ -64,7 +65,7 @@ body {
 }
 #main_nav ul li a.active {
     background: #fff;
-    color: #000;
+    color: black;
 }
 
 /* #### SECONDARY NAV #### */
@@ -276,3 +277,10 @@ background-color: rgb(255, 221, 221);
 .y{width:3em;}
 #spacer{width:5em;}
 .time{width: 2em;}
+#descr_size20{width: 30em; height: 6em;}
+.reserve_table{font-size: 1.2em; text-align: center; float: right; margin-left: auto; margin-right: auto; border-style: outset; border-color: gold; 
+					 padding: 0.5em 0.5em 0.5em 0.5em;}
+td{padding: 0.5em 0.5em 0.5em 0.5em;}
+#locations{width: 10em;}
+#header_rr{text-align: center;}
+#reservation_submit{font-size: 0.8em; padding:0.1em 0.1em 0.1em 0.1em;}
