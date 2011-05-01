@@ -7,7 +7,7 @@ def index
 end
 
 def list_rsvps
-	@rsvp = Reservation.find(:all, :order => "start_date, start_time")
+	@rsvp = Reservation.find(:all, :order => "start_time")
 end
 
 
@@ -52,8 +52,8 @@ def create
   end
   date1 =Time.parse("#{params[:d1]}"+"-"+"#{params[:m1]}"+"-"+"#{params[:y1]}")
   date2 =Time.parse("#{params[:d2]}"+"-"+"#{params[:m2]}"+"-"+"#{params[:y2]}")
-  time1 =Time.parse("#{hour1}"+":"+"#{minute1}"+"#{params[:timestart3]}")
-  time2 =Time.parse("#{hour2}"+":"+"#{minute2}"+"#{params[:timeend3]}")
+  time1 =Time.parse("#{hour1}"+":"+"#{minute1}"+"#{params[:timestart3]}",date1)
+  time2 =Time.parse("#{hour2}"+":"+"#{minute2}"+"#{params[:timeend3]}",date2)
  
   @userrr = Reservation.new(:reserved_user_id =>current_user.id, :name=>params[:name][:size10],
 	:location=>params[:locations], :start_date=>date1, :end_date=>date2, 
