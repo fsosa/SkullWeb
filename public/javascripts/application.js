@@ -2,6 +2,13 @@
 // This file is automatically included by javascript_include_tag :defaults
 
 $(document).ready(function(){
+	$(".my_row").each(function(){
+		if ($(this).attr("class").split(/\s+/)[1] == "done"){
+			$(this).children("#my_job").css("text-decoration", "line-through");
+			$(this).children().children().children("#check").attr("src", "/images/filled_check.png");
+		} 		
+	});
+	
 	$(".my_row").click(function(){
 		// CHECKMARK CHANGE CODE
 		var myElement = $(this);
