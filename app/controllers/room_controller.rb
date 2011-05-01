@@ -3,10 +3,17 @@ class RoomController < ApplicationController
 def index
   require_user
   room_list
+  list_rsvps
 end
+
+def list_rsvps
+	@rsvp = Reservation.find(:all)
+end
+
 
 def room_list
   @urrnames =[]
+  @urrs = []
   alluserrr = Reservation.find(:all)
   
   alluserrr.each do |r|
@@ -19,10 +26,6 @@ def room_list
   @locations =["Chapter Room", "Music Room", "IRDF Room", "Center Room", "Room 57"]
   
   
-  respond_to do |format|
-	  format.html
-	  format.xml
-    end
 end
 
 def create
