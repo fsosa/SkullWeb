@@ -6,6 +6,13 @@ def index
 end
 
 def room_list
+  @urrnames =[]
+  alluserrr = Reservation.find(:all)
+  
+  alluserrr.each do |r|
+    @urrs.push(r)
+  end
+  
   @userrr = Reservation.new
   @user = current_user
   
@@ -20,7 +27,8 @@ end
 
 def create
   @userrr = Reservation.new(:reserved_user_id =>current_user.id, :name=>params[:name][:size10],
-	:location=>params[:locations], :start=>params[:start], :end=>params[:end])
+	:location=>params[:locations], :start_time=>params[:start], :end_time=>params[:end], 
+	:start_date=>params[:start][:size20], :end_date=>params[:end][:size20], :desc=>params[:descr][:size20])
     respond_to do |format|
       if @userrr.save
         format.html { redirect_to(:action => :index) }

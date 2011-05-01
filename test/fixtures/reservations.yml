@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20110429022730
+# Schema version: 20110501152928
 #
 # Table name: reservations
 #
@@ -7,10 +7,13 @@
 #  reserved_user_id :integer
 #  name             :string(255)
 #  location         :string(255)
-#  start            :datetime
-#  end              :datetime
 #  created_at       :datetime
 #  updated_at       :datetime
+#  start_date       :date
+#  end_date         :date
+#  start_time       :time
+#  end_time         :time
+#  desc             :string(255)
 #
 
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html

@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20110429022730
+# Schema version: 20110501152928
 #
 # Table name: reservations
 #
@@ -7,10 +7,13 @@
 #  reserved_user_id :integer
 #  name             :string(255)
 #  location         :string(255)
-#  start            :datetime
-#  end              :datetime
 #  created_at       :datetime
 #  updated_at       :datetime
+#  start_date       :date
+#  end_date         :date
+#  start_time       :time
+#  end_time         :time
+#  desc             :string(255)
 #
 
 class Reservation < ActiveRecord::Base
@@ -18,7 +21,9 @@ class Reservation < ActiveRecord::Base
 validates :reserved_user_id, :presence => true
 validates :name, :presence => true
 validates :location, :presence => true
-validates :start, :presence => true
-validates :end, :presence => true
+validates :start_time, :presence => true
+validates :end_time, :presence => true
+validates :start_date, :presence => true
+validates :end_date, :presence => true
 
 end
