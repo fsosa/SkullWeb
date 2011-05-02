@@ -48,23 +48,25 @@ $(document).ready(function(){
 	var time
 	$("#prev_click").bind('click', function(){
 		$.ajax({
-			dataType: "text",
+			dataType: "json",
 			url: '/hj/weekChange', 
-			data: {"sub": "prev", "time" : time},
-			success: function(response,stuff,thing){console.log(response); $("#hj_week").html("Week of "+response);},
+			data: {"sub": "prev", "time" : String(time)},
+			success: function(response,stuff,thing){console.log(response); $("#hj_week").html("Week of "+response[0]); time=response[1]},
 			});});
 	
 	$("#this_click").bind('click', function(){
 		$.ajax({
+		dataType: "json",
 			url: '/hj/weekChange', 
-			data: {"sub": "this"},
-			success: function(response,stuff,thing){console.log("this");},
+			data: {"sub": "this", "time" : String(time)},
+			success: function(response,stuff,thing){console.log(response); $("#hj_week").html("Week of "+response[0]); time=response[1]},
 			});});
 	$("#next_click").bind('click', function(){
 		$.ajax({
+		dataType: "json",
 			url: '/hj/weekChange', 
-			data: {"sub": "next"},
-			success: function(response){console.log("next");},
+			data: {"sub": "next", "time" : String(time)},
+			success: function(response){console.log(response); $("#hj_week").html("Week of "+response[0]); time=response[1]},
 			});});
 	// RESERVE TABLE REVEAL COMMENTS
 

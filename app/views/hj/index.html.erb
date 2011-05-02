@@ -18,13 +18,14 @@
 			<th>Due Date</th>
 		</thead>
 		<tbody>
+		<% if @uhjs != nil -%>
 		<% @uhjs.each do |uhjs| -%>
 			<% if current_user.fullname == uhjs[0] -%>
 				<tr class="my_row <%= isComplete?(uhjs[1]) %>">
 					<td id="my_name"><a id="empty_check"><img id="check" src="/images/empty_check.png" width=15px height=15px/>
 					<%=uhjs[0]%></td>
 					<td id="my_job"><%=uhjs[1]%></td>
-					<td><%=uhjs[2]%></td>
+					<td><%=uhjs[2].strftime("%A, %b %d")%></td>
 				</tr>
 			<% else -%>
 				<tr>
@@ -33,6 +34,7 @@
 					<td><%= uhjs[2] %></td>
 				</tr>
 			<% end -%>
+		<% end -%>
 		<% end -%>
 		</tbody>
 		</table>
