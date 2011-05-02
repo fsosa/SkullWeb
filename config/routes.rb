@@ -5,6 +5,7 @@ Skullweb::Application.routes.draw do
   
   match '/hj', :to => 'hj#index'
   match '/hj/completeJob', :to => 'hj#completeJob'
+  match '/hj/weekChange', :to => 'hj#weekChange'
   match '/room', :to => 'room#index'
   root :to => 'hj#index'
 	

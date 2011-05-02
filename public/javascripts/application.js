@@ -46,8 +46,26 @@ $(document).ready(function(){
 			data: {"desc":$(this).children("#my_job").html()},
 			success: function(){console.log("job changed")},
 			});});
-			
 	
+	$("#prev_click").bind('click', function(){
+		$.ajax({
+			url: '/hj/weekChange', 
+			data: {"sub": "prev"},
+			success: function(){console.log("prev");},
+			});});
+	
+	$("#this_click").bind('click', function(){
+		$.ajax({
+			url: '/hj/weekChange', 
+			data: {"sub": "this"},
+			success: function(){console.log("this");},
+			});});
+	$("#next_click").bind('click', function(){
+		$.ajax({
+			url: '/hj/weekChange', 
+			data: {"sub": "next"},
+			success: function(){console.log("next");},
+			});});
 	// RESERVE TABLE REVEAL COMMENTS
 
 	

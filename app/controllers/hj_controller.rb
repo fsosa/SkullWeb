@@ -1,6 +1,15 @@
+def help
+    HJHelper.instance
+  end
+
+  class HJHelper
+    include Singleton
+    include ActionView::Helpers::HjHelper
+  end
 class HjController < ApplicationController
 
 #/GET/hj
+@newtime
 def index
   #this is a helper method (see /app/helpers/application.rb)
   #which makes sure that a user is logged in in order to see the page
@@ -8,6 +17,23 @@ def index
   
   #this just calls the method below
   list_jobs
+  if @newtime == nil
+	@newtime = Time.now
+  end
+  @week_thing = help.setscurrent(@newtime.year, @newtime.month, @newtime.day)
+end
+
+def weekChange
+	if params["sub"] == "prev"
+		puts "hello"
+	elsif params["sub"] == "this"
+		puts "worked"
+	elsif params["sub"] == "next"
+		puts "you suck"
+	end
+	respond_to do |format|
+		format.xml { render :text => "YOOO"}
+	end
 end
 
 def list_jobs
@@ -49,6 +75,7 @@ def list_jobs
   @uhjs.uniq!
   
 end
+
 
 
 

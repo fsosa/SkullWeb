@@ -21,7 +21,8 @@ validates :hj_id, :presence => true, :uniqueness => {:scope => [:assigned_user_i
 def username_desc
   name = User.find(assigned_user_id).fullname
   desc = HouseJob.find(hj_id).desc
-  return [name, desc]
+  due_date = due.strftime("%A, %b %d")
+  return [name, desc, due_date]
 end
 
 end

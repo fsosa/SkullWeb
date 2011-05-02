@@ -1,10 +1,73 @@
-	 <h3 id="header_rr" class="button"> Reserve A Room?</h3>
+	<div class="overview_day">
+	
+	<h2>Upcoming Events:</h2>
+	
+	<table id="rsvp_table_13" class="rsvp_table tablesorter">
+	
+		<colgroup width="25%"></colgroup>
+		<colgroup width="25%"></colgroup>
+		<colgroup width="25%"></colgroup>
+		<colgroup width="25%"></colgroup>
+		
+		<thead>
+			<th scope="col">Event</th>
+			<th scope="col">Date</th>
+			<th scope="col">Room</th>
+			<th scope="col">Time</th>
+		</thead>
+		
+		<tbody>
+		<% @rsvp.each do |r| -%>
+			<tr id="<%=r.id%>">
+				<td>
+					<a id="more_info"><img id="plus-minus" src="/images/plus.png" width=20px height=20px />
+					<%= r.name %>
+				</td>
+				<td>
+					<%=r.start_date.strftime("%m-%d-%Y") %>
+				</td>
+				<td>
+					<%= r.location %>
+				</td>
+				<td>
+					<%= r.start_time.strftime("%I:%M %p").gsub(/0?(\d):/,'\1:') %> - <%= r.end_time.strftime("%I:%M %p").gsub(/0?(\d):/,'\1:') %>
+				</td>
+			</tr>
+			<tr class="ev_info" style="display:none">
+				<td colspan="3">
+					Description: <%= r.desc %></br>
+					Reserved by: <%= User.find(r.reserved_user_id).fullname %>
+				</td>
+			</tr>
+		<% end -%>
+		</tbody>
+			
+	</table>
+	<script type="text/javascript">
+		// <![CDATA[
+		var myTextExtraction = function(node){ console.log(node.childNodes[3].childNodes[0]);}
+		$("#rsvp_table_13").tablesorter();
+		//$("#rsvp_table_13").tablesorter({headers: {0:{sorter:false},1:{sorter:false},2:{sorter:false},3:{sorter:false}}});
+		//$("#rsvp_table_13").tablesorter({textExtraction: myTextExtraction});
+		// ]]>
+      </script>
+</div>
+	<h2 id="header_rr" class="button_rr">Reserve A Room</h2>
 	<%= form_for @userrr, :url =>{:action => :create} do |f| %>
 	<div id="table_form" style="display:none">
 	<table  class="reserve_table" >
 	<script type="text/javascript">
 		// <![CDATA[ 
-		$("#header_rr").click(function() {$("#table_form").slideToggle("slow");}); 
+		var showing = false;
+		console.log(showing);
+		$("#header_rr").click(function() {
+			$("#table_form").slideToggle("fast");   
+			//showing = !showing;
+			//if (showing==true){console.log(showing); $(document).scrollTop(290); console.log($(document).scrollTop());}
+			//else{}
+		});
+		
+		
 		// ]]>
       </script>
 		<tr>
@@ -149,59 +212,5 @@
 		</table>
 		</div>
 	<%end%>
-	<div>&nbsp;</br></div>
 	
-	<div class="overview_day">
 	
-	<h3>Upcoming Events:</h3>
-	
-	<table id="rsvp_table_13" class="rsvp_table tablesorter">
-	
-		<colgroup width="20%"></colgroup>
-		<colgroup width="20%"></colgroup>
-		<colgroup width="20%"></colgroup>
-		<colgroup width="20%"></colgroup>
-		
-		<thead>
-			<th scope="col">Event</th>
-			<th scope="col">Date</th>
-			<th scope="col">Room</th>
-			<th scope="col">Time</th>
-		</thead>
-		
-		<tbody>
-		<% @rsvp.each do |r| -%>
-			<tr id="<%=r.id%>">
-				<td>
-					<a id="more_info"><img id="plus-minus" src="/images/plus.png" width=20px height=20px />
-					<%= r.name %>
-				</td>
-				<td>
-					<%=r.start_date.strftime("%m-%d-%Y") %>
-				</td>
-				<td>
-					<%= r.location %>
-				</td>
-				<td>
-					<%= r.start_time.strftime("%I:%M %p").gsub(/0?(\d):/,'\1:') %> - <%= r.end_time.strftime("%I:%M %p").gsub(/0?(\d):/,'\1:') %>
-				</td>
-			</tr>
-			<tr class="ev_info" style="display:none">
-				<td colspan="3">
-					Description: <%= r.desc %></br>
-					Reserved by: <%= User.find(r.reserved_user_id).fullname %>
-				</td>
-			</tr>
-		<% end -%>
-		</tbody>
-			
-	</table>
-	<script type="text/javascript">
-		// <![CDATA[
-		var myTextExtraction = function(node){ console.log(node.childNodes[3].childNodes[0]);}
-		$("#rsvp_table_13").tablesorter();
-		//$("#rsvp_table_13").tablesorter({headers: {0:{sorter:false},1:{sorter:false},2:{sorter:false},3:{sorter:false}}});
-		//$("#rsvp_table_13").tablesorter({textExtraction: myTextExtraction});
-		// ]]>
-      </script>
-</div>

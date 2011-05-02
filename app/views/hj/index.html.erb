@@ -1,21 +1,21 @@
 	<div id="week_nav">
 		<ul>
-			<li><a href="">&laquo; Previous week</a></li>
-			<li><a href="" id="calendar">This Week</a></li>
-			<li><a href="">Next week &raquo;</a></li>
+			<li><a id="prev_click" >&laquo; Previous week</a></li>
+			<li><a id="this_click" >This Week</a></li>
+			<li><a id="next_click" >Next week &raquo;</a></li>
 		</ul>
 	</div>
-	
-	<h2> Week of May 1 </h2>
+	<h2 id="hj_week"> Week of <%=@week_thing%> </h2>
 	
 	<div class="overview_day">
-		<h3> Due Wednesday, May 4th </h3>
 		<table id="hj_wed13" class="hj_table">
 			<colgroup width="20%"></colgroup>
 			<colgroup width="60%"></colgroup>
+			<colgroup width="20%"></colgroup>
 		<thead>
 			<th>Name</th>
 			<th>Job</th>
+			<th>Due Date</th>
 		</thead>
 		<tbody>
 		<% @uhjs.each do |uhjs| -%>
@@ -24,11 +24,13 @@
 					<td id="my_name"><a id="empty_check"><img id="check" src="/images/empty_check.png" width=15px height=15px/>
 					<%=uhjs[0]%></td>
 					<td id="my_job"><%=uhjs[1]%></td>
+					<td><%=uhjs[2]%></td>
 				</tr>
 			<% else -%>
 				<tr>
 					<td><%= uhjs[0] %></td>
 					<td><%= uhjs[1] %></td>
+					<td><%= uhjs[2] %></td>
 				</tr>
 			<% end -%>
 		<% end -%>
