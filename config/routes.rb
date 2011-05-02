@@ -7,6 +7,7 @@ Skullweb::Application.routes.draw do
   match '/hj/completeJob', :to => 'hj#completeJob'
   match '/hj/weekChange', :to => 'hj#weekChange'
   match '/room', :to => 'room#index'
+  match '/room/delete', :to => "room#delete"
   root :to => 'hj#index'
 	
   # The priority is based upon order of creation:

@@ -10,6 +10,19 @@ def list_rsvps
 	@rsvp = Reservation.find(:all, :order => "start_time")
 end
 
+def delete
+	del_id = params[:del_id]
+	del = Reservation.find(del_id)
+	
+	respond_to do |format|
+		if del.delete
+			format.html {redirect_to ({:action=>:index},{:notice => "Your event was succesfully deleted"})}
+		else
+			format.html {redirect_to ({:action=>:index},{:notice=> "Your event was not deleted. Please try again."})}
+		end
+	end
+end
+
 
 def room_list
   @urrnames =[]
@@ -65,11 +78,11 @@ def create
 	:start_time=>time1, :end_time=>time2, :desc=>params[:descr][:size20])
     respond_to do |format|
       if @userrr.save
-        format.html { redirect_to(:action => :index) }
+        format.html { redirect_to({:action => :index},{:notice => "Your reservation was completed."}) }
         format.xml  { render :xml => @userrr, :status => :created, :location => @userrr }
       else
-        format.html { redirect_to(:action => :index, :notice => 'Already made') }
-        format.xml  { render :xml => @userr.errors, :status => :unprocessable_entity }
+        format.html { redirect_to({:action => :index}, {:notice => "There were some problems with your reservation. Please make sure you have an event name and try again."}) }
+		format.xml  { render :xml => @userrr.errors, :status => :unprocessable_entity }
       end
     end
 end

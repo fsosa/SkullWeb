@@ -19,6 +19,7 @@
 	
 </div>
 
+<div id="notice"><%= notice %></div>
 
 <div id="main_nav">
 	<ul>
@@ -31,7 +32,9 @@
 		</li>
 		<% if (current_user && current_user.admin) -%>
 		<li>
-			<a href="/admins" class=<%= activate('admins') %> >Admin Panel</a>
+
+			<a href="/admin/house_jobs" class=<%= activate('admins') %> >Admin Panel</a>
+
 		</li>
 		<% end -%>
 

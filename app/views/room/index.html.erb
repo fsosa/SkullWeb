@@ -1,3 +1,4 @@
+
 	<div class="overview_day">
 	
 	<h2>Upcoming Events:</h2>
@@ -20,7 +21,7 @@
 		<% @rsvp.each do |r| -%>
 			<tr id="<%=r.id%>">
 				<td>
-					<a id="more_info"><img id="plus-minus" src="/images/plus.png" width=20px height=20px />
+					<a id="more_info"><img id="plus-minus" src="/images/plus.png" width=16px height=16px />
 					<%= r.name %>
 				</td>
 				<td>
@@ -34,9 +35,15 @@
 				</td>
 			</tr>
 			<tr class="ev_info" style="display:none">
-				<td colspan="3">
-					Description: <%= r.desc %></br>
-					Reserved by: <%= User.find(r.reserved_user_id).fullname %>
+				<td colspan="4">
+						<b>Description:</b> <%= r.desc %></br></br>
+						<b>Reserved by:</b> <%= User.find(r.reserved_user_id).fullname %></br></br>
+						<% if current_user.id == r.reserved_user_id %>
+							<%= form_tag :action => "delete" do %>
+								<%= hidden_field_tag :del_id, r.id %>
+								<%= submit_tag "Delete Event" %>
+							<% end %>
+						<% end %>
 				</td>
 			</tr>
 		<% end -%>
@@ -212,5 +219,3 @@
 		</table>
 		</div>
 	<%end%>
-	
-	

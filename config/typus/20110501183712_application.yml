@@ -1,0 +1,45 @@
+# Typus Models Configuration File
+#
+# Use the README file as a reference to customize settings.
+
+HouseJob:
+  fields:
+    default: description
+    form: description
+  order_by: 
+  relationships: 
+  filters: created_at
+  search: 
+  application: SkullWeb
+  description: House Jobs
+
+Reservation:
+  fields:
+    default: reserved_user_id, name, location, start_date, end_date, start_time, end_time, desc
+    form: reserved_user_id, name, location, start_date, end_date, start_time, end_time, desc
+  order_by: 
+  relationships: 
+  filters: created_at
+  search: name
+  application: SkullWeb
+
+User:
+  fields:
+    default: username, first_name, last_name, email, admin
+    form: username, first_name, last_name, email, admin
+  order_by: 
+  relationships: 
+  filters: created_at
+  search: 
+  application: SkullWeb
+
+UserHj:
+  fields:
+    default: assigned_user_id, hj_id, due, isComplete
+    form: assigned_user_id, hj_id, due, isComplete
+  order_by: 
+  relationships: 
+  filters: created_at
+  search: 
+  application: SkullWeb
+

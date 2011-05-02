@@ -142,7 +142,7 @@ body {
 }
 #content ul {
     margin-bottom: 20px;
-    list-style: none;
+    /*list-style: none;*/
 }
 #content ul:last-child {
     margin-bottom: 0;
@@ -337,3 +337,19 @@ float:none;
     border-bottom: 1px solid #333333;
     border-left: 1px solid #CCCCCC;
    }
+   
+#error_explanation{
+	display:inline-block;
+	float:right;
+}
+
+#notice{
+	color: white;
+    display: block;
+    padding-bottom: 5px;
+    text-align: center;
+}
+
+#plus-minus{
+	vertical-align: text-bottom;
+}

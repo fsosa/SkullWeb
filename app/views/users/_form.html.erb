@@ -1,7 +1,7 @@
 <%= form_for(@user) do |f| %>
   <% if @user.errors.any? %>
     <div id="error_explanation">
-      <h2>There are <%= pluralize(@user.errors.count, "error") %> in your registration:</h2>
+      <h2>There were errors in your changes:</h2>
 
       <ul>
       <% @user.errors.full_messages.each do |msg| %>
@@ -11,7 +11,7 @@
     </div>
   <% end %>
 	
-
+	<div id="edit_profile_div">
 	<table id="profile_table" cellspacing="10">
 		<tr>
 		<td><%= f.label :username %></td>
@@ -46,5 +46,7 @@
 		<tr><td/>
 			<td><%= f.submit "Submit" %></td>
 		</tr>
+	</div>
+	
 
 <% end %>
