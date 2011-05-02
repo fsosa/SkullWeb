@@ -1,6 +1,12 @@
-	<h2 id="header_rr"> Reserve A Room</h2> 
+	 <h3 id="header_rr" class="button"> Reserve A Room?</h3>
 	<%= form_for @userrr, :url =>{:action => :create} do |f| %>
-	<table class="reserve_table">
+	<div id="table_form" style="display:none">
+	<table  class="reserve_table" >
+	<script type="text/javascript">
+		// <![CDATA[ 
+		$("#header_rr").click(function() {$("#table_form").slideToggle("slow");}); 
+		// ]]>
+      </script>
 		<tr>
 		<td></td>
 		<td id="table_name">
@@ -141,6 +147,7 @@
 		<td></td>
 		</tr>
 		</table>
+		</div>
 	<%end%>
 	<div>&nbsp;</br></div>
 	

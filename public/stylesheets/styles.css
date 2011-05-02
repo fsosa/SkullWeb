@@ -285,11 +285,11 @@ background-color: rgb(255, 221, 221);
 .time{width: 2em;}
 
 #descr_size20{width: 30em; height: 6em;}
-.reserve_table{font-size: 1.2em; text-align: center; float: right; margin-left: auto; margin-right: auto; border-style: outset; border-color: gold; 
+.reserve_table{font-size: 1.2em; text-align: center; float: right; margin-left: auto; margin-right: auto; border-style: outset; border-color: #907940; border-width: 15px;
 					 padding: 0.5em 0.5em 0.5em 0.5em;}
-td{padding: 0.5em 0.5em 0.5em 0.5em;}
+.reserve_table td{padding:0.5em;}
 #locations{width: 10em;}
-#header_rr{text-align: center;}
+#header_rr{}
 #reservation_submit{font-size: 0.8em; padding:0.1em 0.1em 0.1em 0.1em;}
 
 
@@ -318,3 +318,14 @@ float:right;
 float:right;
 }
 
+.button {
+    font: bold 11px Arial;
+    text-decoration: none;
+    background-color: #EEEEEE;
+    color: #333333;
+    padding: 2px 6px 2px 6px;
+    border-top: 1px solid #CCCCCC;
+    border-right: 1px solid #333333;
+    border-bottom: 1px solid #333333;
+    border-left: 1px solid #CCCCCC;
+   }
