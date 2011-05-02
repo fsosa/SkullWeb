@@ -300,3 +300,7 @@ float:right;
 #2prime{
 float:right;
 }
+
+#profile_table label{
+float:none; 
+}
