@@ -19,6 +19,7 @@ def index
   if @newtime == nil
 	@newtime = Time.now
   end
+  list_jobs(@newtime)
   @week_thing = help.setscurrent(@newtime.year, @newtime.strftime("%m"), @newtime.strftime("%d"))[0]  + " " + help.setscurrent(@newtime.year, @newtime.strftime("%m"), @newtime.strftime("%d"))[1] 
 end
 
@@ -51,7 +52,12 @@ def weekChange
 	respond_to do |format|
 		format.xml { render :json => [@week_thing.to_s, varsfortime[2]+ " "+varsfortime[1]+" "+varsfortime[0]]}
 	end
-
+	index
+	#list_jobs(@newtime)
+end
+def list_jobs (time)
+	@newtime = time
+	puts @newtime
   #initialize a new instance variable to store the data we want to display
   #instance variables (annoted with '@') are available to the corresponding controller
   @uhjs =[]
@@ -65,8 +71,12 @@ def weekChange
   userhjs.each do |uhj|
   puts uhj.username_desc[2].day
   puts @newtime.day
-	if uhj.username_desc[2].day.to_i > @newtime.day.to_i+7
-	elsif uhj.username_desc[2].day.to_i < @newtime.day.to_i-7
+	if uhj.username_desc[2].day.to_i >= @newtime.day.to_i+7
+	puts "too high"
+	
+	elsif uhj.username_desc[2].day.to_i <= @newtime.day.to_i-7
+	puts "too low"
+	weekuserhjs = []
 	else
 		puts uhj
 		weekuserhjs.push(uhj)
@@ -97,7 +107,7 @@ def weekChange
   
   #methods with a bang (!) at the end is a ruby convention that means that the method
   #permanently modifies the object it is being called on.
-  @uhjs.uniq!
+  #@uhjs.uniq!
   
 end
 

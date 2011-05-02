@@ -231,8 +231,13 @@ a.name {
 	border-bottom: 1px solid #999;
 	color: black;
 	padding: 6px 8px;
+	cursor:pointer;
 }
-
+.rsvp_table tr:hover
+{
+		background-color:#906E06;
+}
+#nochange{background-color:white;}
 /**
 .rsvp_table tbody tr:hover td
 {
@@ -243,6 +248,9 @@ a.name {
 .ev_info td
 {
 	padding-left: 20px;
+}
+.ev_info td{
+background-color:white;
 }
 
 
@@ -290,7 +298,9 @@ background-color: rgb(255, 221, 221);
 
 #locations{width: 10em;}
 #header_rr{text-align: center; width: 30%; margin-left: auto; margin-right: auto;}
-#reservation_submit{font-size: 0.8em; padding:0.1em 0.1em 0.1em 0.1em;}
+#reservation_submit{
+font-size: 1em; padding:0.1em 0.1em 0.1em 0.1em; 
+}
 
 
 #login_div, #login_div label{
@@ -330,8 +340,8 @@ float:none;
     color: black;
     padding: 2px 6px 2px 6px;
     border-top: 1px solid #CCCCCC;
-    border-right: 1px solid #333333;
-    border-bottom: 1px solid #333333;
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
     border-left: 1px solid #CCCCCC;
    }
    
@@ -355,4 +365,11 @@ float:none;
 
 #created_at {
 vertical-align: text-top;
+}
+
+.click{
+	font: 12px;
+	text-decoration: underline;
+	cursor: pointer;
+	
 }

@@ -77,7 +77,7 @@ $(document).ready(function(){
 
 		if (src == "/images/plus.png"){
 
-			src = "/images/minus.png";
+			src = "/images/minus3.png";
 		} else {
 			src = "/images/plus.png";
 		}

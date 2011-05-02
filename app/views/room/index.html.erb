@@ -11,10 +11,12 @@
 		<colgroup width="25%"></colgroup>
 		
 		<thead>
+		<tr id="nochange">
 			<th scope="col">Event</th>
 			<th scope="col">Date</th>
 			<th scope="col">Room</th>
 			<th scope="col">Time</th>
+			</tr>
 		</thead>
 		
 		<tbody>
@@ -25,7 +27,7 @@
 					<%= r.name %>
 				</td>
 				<td>
-					<%=r.start_date.strftime("%m-%d-%Y") %>
+					<%=r.start_date.strftime("%b %d, %Y") %>
 				</td>
 				<td>
 					<%= r.location %>
@@ -36,12 +38,12 @@
 			</tr>
 			<tr class="ev_info" style="display:none">
 				<td colspan="4">
-						<b>Description:</b> <%= r.desc %></br></br>
-						<b>Reserved by:</b> <%= User.find(r.reserved_user_id).fullname %></br></br>
+						<%= r.desc %></br>
+						<i>Reserved by: <%= User.find(r.reserved_user_id).fullname %></i></br>
 						<% if current_user.id == r.reserved_user_id %>
 							<%= form_tag :action => "delete" do %>
 								<%= hidden_field_tag :del_id, r.id %>
-								<%= submit_tag "Delete Event" %>
+								<%= submit_tag "Delete Event"  %>
 							<% end %>
 						<% end %>
 				</td>
