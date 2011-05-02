@@ -4,8 +4,10 @@
 }
 
 body {
-    background: #ccc;
+
+    background: black;
     font: 13px/1.4em "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+
 }
 
 #main {
@@ -26,7 +28,7 @@ body {
 }
 #header h1 a {
     text-decoration: none;
-    color: #000;
+    color: white;
 }
 #header h1 a:hover {
     text-decoration: underline;
@@ -42,7 +44,9 @@ body {
 /* #### MAIN NAV #### */
 
 #main_nav {
-    background: #999;
+
+    background: #907940;
+
 }
 #main_nav ul {
     overflow: auto;
@@ -55,7 +59,7 @@ body {
     display: block;
     padding: 10px 20px;
     color: #333;
-    text-shadow: 1px 1px 1px #ccc;
+
     font-size: 12px;
     text-decoration: none;
 }
@@ -64,7 +68,7 @@ body {
 }
 #main_nav ul li a.active {
     background: #fff;
-    color: #000;
+    color: black;
 }
 
 /* #### SECONDARY NAV #### */
@@ -275,3 +279,55 @@ background-color: rgb(255, 221, 221);
 .d{width:2em;}
 .y{width:3em;}
 #spacer{width:5em;}
+.time{width: 2em;}
+
+#descr_size20{width: 30em; height: 6em;}
+.reserve_table{font-size: 1.2em; text-align: center; float: right; margin-left: auto; margin-right: auto; border-style: outset; border-color: #907940; border-width: 15px;
+					 padding: 0.5em 0.5em 0.5em 0.5em;}
+.reserve_table td{padding:0.5em;}
+
+#locations{width: 10em;}
+#header_rr{}
+#reservation_submit{font-size: 0.8em; padding:0.1em 0.1em 0.1em 0.1em;}
+
+
+#login_div, #login_div label{
+	text-align:center;
+	float: none;
+}
+
+#login_table {
+margin-right:auto;
+margin-left:auto;
+}
+
+#login_header{
+font-size: 28px;
+}
+
+#crest{
+vertical-align:middle;
+}
+
+#prime{
+float:right;
+}
+#2prime{
+float:right;
+}
+
+#profile_table label{
+float:none; 
+}
+
+.button {
+    font: bold 11px Arial;
+    text-decoration: none;
+    background-color: #EEEEEE;
+    color: #333333;
+    padding: 2px 6px 2px 6px;
+    border-top: 1px solid #CCCCCC;
+    border-right: 1px solid #333333;
+    border-bottom: 1px solid #333333;
+    border-left: 1px solid #CCCCCC;
+   }

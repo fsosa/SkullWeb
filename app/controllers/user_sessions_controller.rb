@@ -1,10 +1,11 @@
 class UserSessionsController < ApplicationController
+	layout 'blank'
 
   # GET /user_sessions/new
   # GET /user_sessions/new.xml
   def new
     @user_session = UserSession.new
-
+	
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @user_session }
@@ -18,7 +19,7 @@ class UserSessionsController < ApplicationController
 
     respond_to do |format|
       if @user_session.save
-        format.html { redirect_to(:root, :notice => 'Login Successful') }
+        format.html { redirect_to(:root) }
         format.xml  { render :xml => @user_session, :status => :created, :location => @user_session }
       else
         format.html { render :action => "new" }

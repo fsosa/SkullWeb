@@ -2,6 +2,13 @@
 // This file is automatically included by javascript_include_tag :defaults
 
 $(document).ready(function(){
+	$(".my_row").each(function(){
+		if ($(this).attr("class").split(/\s+/)[1] == "done"){
+			$(this).children("#my_job").css("text-decoration", "line-through");
+			$(this).children().children().children("#check").attr("src", "/images/filled_check.png");
+		} 		
+	});
+	
 	$(".my_row").click(function(){
 		// CHECKMARK CHANGE CODE
 		var myElement = $(this);
@@ -42,9 +49,22 @@ $(document).ready(function(){
 			
 	
 	// RESERVE TABLE REVEAL COMMENTS
-	$(".rsvp_table  a").click(function(){		
-		$(this).parent().parent().next("tr.ev_info").toggle();
-	});
+
+	
+	$(".rsvp_table  tr").click(function(){		
+		$(this).next("tr.ev_info").toggle();
+		var src = $(this).children().children().children().attr("src");
+
+		if (src == "/images/plus.png"){
+
+			src = "/images/minus.png";
+		} else {
+			src = "/images/plus.png";
+		}
+		
+		$(this).children().children().children().attr("src", src);
+		
+	});	
 
 	// WILL NEED TO TAKE THIS OUT LATER
 	$("#rr_form").submit(function() {
@@ -56,6 +76,18 @@ $(document).ready(function(){
 		console.log(this);
 		alert("You reserved the Chapter room for Poker from 1:00 a.m to 4:00 a.m.");
 		return false;
-	});		
+	});	
+
+	$("#header").click(function(){
+		if ($("#login_div").is(":hidden")) {
+			$("#login_div").animate({ width: 635});
+			setTimeout(function(){
+				$("#login_div").fadeIn();},250);
+		} else {
+			$("#login_div").fadeOut();
+			setTimeout(function(){
+				$("#login_div").animate({ width: 300 })},250);
+		} return false;
+}) 	
 	
 });
