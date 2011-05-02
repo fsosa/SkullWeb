@@ -1,0 +1,47 @@
+<%  
+  page_title = @resource.model_name.human.pluralize.titleize
+  title(page_title)
+%>
+
+<% if @resource.model_name.human.pluralize == 'House jobs' %>
+	<% page_title = "Modify House Job Defintions" %>
+<% elsif @resource.model_name.human.pluralize == 'Reservations' %>
+	<% page_title = "Modify Room Reservations" %>
+<% elsif @resource.model_name.human.pluralize == 'Users' %>
+	<% page_title = "Modify Users" %>
+<% else %>
+	<% page_title = "Modify Assigned House Jobs" %>
+<% end %>
+<% title(page_title) %>
+
+<% content_for :sidebar, build_sidebar %>
+
+
+<h2>
+<%= page_title %> <%= list_actions %>
+</h2>
+
+<%= display_flash_message %>
+
+<%= render 'index' %>
+
+<ul class="predefined_filters">
+  <% predefined_filters.each do |filter, action, scope| %>
+    <li><%= link_to Typus::I18n.t(filter), params.dup.cleanup.merge(:action => action) %> (<%= @resource.send(scope).count %>)</li>
+	<li><%= link_to "Create new #{@resource.model_name.human.titleize}", "/admin/#{@resource.to_resource}/new" %></li>
+  <% end %>
+</ul>
+
+<% if (build_filters || search) %>
+  <div class="filters">
+    <%= build_filters %>
+    <%= search %>
+  </div>
+<% end %>
+
+<% if @items.any? -%>
+  <%= build_list(@resource, fields, @items) %>
+  <%= will_paginate(@items, Typus.pagination) %>
+<% else %>
+  <p><%= Typus::I18n.t("No %{resources} found.", :resources => @resource.model_name.human.downcase.pluralize) %></p>
+<% end %>

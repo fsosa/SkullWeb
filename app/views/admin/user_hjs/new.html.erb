@@ -1,0 +1,30 @@
+<%
+  page_title = Typus::I18n.t("New %{resource}", :resource => @resource.model_name.human.titleize)
+  title(page_title)
+%>
+
+<% if @resource.model_name.human.pluralize == 'House jobs' %>
+	<% page_title = "New House Job Defintion" %>
+<% elsif @resource.model_name.human.pluralize == 'Reservations' %>
+	<% page_title = "New Room Reservation" %>
+<% elsif @resource.model_name.human.pluralize == 'Users' %>
+	<% page_title = "New User" %>
+<% else %>
+	<% page_title = "New Assigned House Job" %>
+<% end %>
+<% title(page_title) %>
+
+<% content_for :sidebar, build_sidebar %>
+
+
+  <h2> <%= page_title %> </h2>
+  <small><%= list_actions %></small>
+
+
+<%= display_link_to_previous %>
+<%= render 'new' %>
+<%
+  options = params.dup.cleanup.merge(:action => 'create')
+  button = Typus::I18n.t("Create %{resource}", :resource => @resource.model_name.human)
+%>
+<%= render :partial => 'form', :locals => { :options => options, :button => button } %>
