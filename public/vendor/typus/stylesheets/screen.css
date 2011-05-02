@@ -1,0 +1,511 @@
+/*
+  Copyright (c) 2010, Francesc Esplugas Marti
+  Code licensed under the MIT License
+  Updated: 20100618
+
+*/
+
+/* @group Defaults */
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+
+body {
+  background: #ccc;
+  font: 13px/1.4em "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+}
+
+#main {
+    width: 850px;
+    margin: 0 auto 30px;
+}
+
+/* @end */
+
+/* @group Header */
+
+#header {
+    padding: 30px 0;
+    position: relative;
+}
+#header h1 {
+    font-size: 36px;
+    font-weight: bold;
+}
+#header h1 span {
+    font-weight: normal;
+}
+#header h1 a {
+    text-decoration: none;
+    color: #000;
+}
+#header h1 a:hover {
+    text-decoration: underline;
+}
+
+#header #login {
+    float: right;
+    text-align: right;
+    font-size: 12px;
+    color: #666;
+}
+
+/* #### MAIN NAV #### */
+
+#main_nav {
+    background: #999;
+}
+#main_nav ul {
+    overflow: auto;
+}
+#main_nav ul li {
+    list-style: none;
+    float: left;
+}
+#main_nav ul li a {
+    display: block;
+    padding: 10px 20px;
+    color: #333;
+    text-shadow: 1px 1px 1px #ccc;
+    font-size: 12px;
+    text-decoration: none;
+}
+#main_nav ul li a:hover {
+    text-decoration: underline;
+}
+#main_nav ul li a.active {
+    background: #fff;
+    color: #000;
+}
+
+/* #### SECONDARY NAV #### */
+
+#secondary_nav {
+    background: #fff;
+    margin-bottom: 20px;
+    display: table;
+    width: 100%;
+}
+
+#secondary_nav ul {
+    padding: 20px 30px;
+}
+
+#secondary_nav li {
+    border-right: 1px solid #ccc;
+    display: table-cell;
+    vertical-align: top;
+    height: 100%;
+    margin: 10px;
+    padding: 0 25px;
+}
+
+#secondary_nav ul li a {
+    color: #000;
+
+    font-size: 12px;
+    text-decoration: none;
+}
+#secondary_nav ul li a:hover {
+    color: #000;
+}
+#secondary_nav ul li a.active {
+    background: #ccc;
+    color: #000;
+}
+
+
+#secondary_nav table tbody {width: 100%;}
+#secondary_nav table a { text-decoration: none; }
+
+#secondary_nav table tr.even { background: #FFF!important; }
+#secondary_nav table tr.odd { background: #F3F3F3; }
+#secondary_nav table tr.even:hover,
+#secondary_nav table tr.odd:hover { background: #E4E4E4!important; }
+#secondary_nav table td { border: none; margin: auto; vertical-align: top; }
+
+/* #### WEEK NAV #### */
+
+#week_nav {
+    float: right;
+}
+#week_nav ul {
+    overflow: auto;
+}
+#week_nav ul li {
+    list-style: none;
+    float: left;
+}
+#week_nav ul li a {
+    display: block;
+    margin-left: 10px;
+    color: #000;
+    font-size: 12px;
+}
+
+#week_nav a#calendar span { display: none; }
+
+#content {
+    background: #fff;
+    padding: 20px;
+}
+#content h2 {
+    font-size: 24px;
+    font-weight: normal;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 20px;
+}
+#content h3 {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+#content ul {
+    margin-bottom: 20px;
+    list-style: none;
+}
+#content ul:last-child {
+    margin-bottom: 0;
+}
+
+a.name {
+    color: #000;
+}
+
+.overview_day {
+    padding: 10px;
+    margin: 10px 0;
+}
+.wd_calendar_week {
+    list-style: none;
+    overflow: auto;
+}
+.wd_calendar_day {
+    border: 0px solid #ddd;
+    float: left;
+    width: 140px;
+    height: 140px;
+    padding: 10px;
+}
+.wd_calendar_day ul.assignments span.type {
+    font-weight: bold;
+}
+.wd_calendar_day ul.assignments a.claim {
+    color: #888;
+    font-style: italic;
+}
+.wd_calendar_day div.no_assignments {
+    background: #eee;
+    padding: 10px;
+    font-style: italic;
+    color: #888;
+    margin-right: 20px;
+}
+.today { background: #fafadd; }
+
+.assignment {
+    color: #999;
+}
+.assignment.mine { background: #ddffff; }
+.assignment.done.mine { background: #ddffdd; }
+.assignment.overdue.mine { background: #ffdddd; }
+.assignment .job {
+    color: #006;
+    font-size: 14px;
+    font-weight: bold;
+}
+.assignment.done .job { color: #060; }
+.assignment.overdue .job { color: #600; }
+
+#templates { display: none; }
+
+#messages p {
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid #888;
+    font-style: italic;
+    font-size: 14px;
+}
+#messages p.info { background: #ddffff; }
+#messages p.success { background: #deffde; }
+#messages p.sorry { background: #ffefde; }
+#messages p.error { background: #661510; color: #fff; }
+
+/**ADDED**/
+.rsvp_table, .hj_table
+{
+	background: #fff;
+	margin: 20px;
+	width: 80%;
+	border-collapse: collapse;
+	text-align: left;
+}
+.rsvp_table th, .hj_table th
+{
+	font-size: 14px;
+	font-weight: normal;
+	padding: 5px 8px;
+	border-bottom: 2px solid black;
+}
+.rsvp_table td, .hj_table td
+{
+	border-bottom: 1px solid #999;
+	color: black;
+	padding: 6px 8px;
+}
+
+/**
+.rsvp_table tbody tr:hover td
+{
+	text-decoration: underline;
+}
+**/
+
+.ev_info td
+{
+	padding-left: 20px;
+}
+
+
+.my_row
+{
+	background: #FDD;
+}
+
+#test
+{
+	vertical-align:bottom;
+}
+fieldset{ padding: 0 1em 1em 1em;}
+legend{font-size: 1.5em; padding: 1em;}
+label{float: left; clear: left; width: 7em;}
+#form_rsvp div{padding: 0 0 0.5em 0;}
+#reser{font-size: 1em;}
+
+#my_row, #check {
+-webkit-user-select: none;
+-khtml-user-select: none;
+-moz-user-select: none;
+-o-user-select: none;
+user-select: none;
+} 
+
+.done {
+background-color: rgb(221, 255, 255);
+}
+
+.undone{
+background-color: rgb(255, 221, 221);
+}
+
+.m{width: 2em;}
+.d{width:2em;}
+.y{width:3em;}
+#spacer{width:5em;}
+
+
+
+/* @group Fieldsets */
+
+fieldset { margin: 0; padding: 0; }
+fieldset ol { margin: 0!important; }
+fieldset ol li { list-style: none!important; margin: 1em 0!important; }
+fieldset small { font-size: 0.9em; font-weight: normal; margin: 0 0 0 0.25em; }
+fieldset small a { text-decoration: none; }
+
+fieldset.inputs { }
+
+  fieldset.inputs input[type='text'],
+  fieldset.inputs input[type='password'] {
+    font-size: 20px;
+    padding: 5px;
+    width: 685px;
+  }
+
+  fieldset.inputs input[type='text']:focus,
+  fieldset.inputs input[type='password']:focus {
+    background: #FFFCE1;
+  }
+
+  fieldset.inputs textarea {
+    font-size: 1.2em;
+    padding: 3px;
+    width: 691px;
+  }
+
+  fieldset.inputs select { border: 1px solid #999; font-size: 1.20em; }
+
+  fieldset.inputs textarea:focus { background: #FFFCE1; }
+  fieldset.inputs label.inline_label { display: inline; }
+
+fieldset.buttons { }
+
+/* @end */
+
+/* @group Content Tables */
+
+#content table { margin-bottom: 2em!important; width: 100%; text-align: left; }
+#content table a { text-decoration: none; }
+#content table th { background: #242527; color: #FFF; padding: 6px; }
+#content table th a { color: #FFF!important; text-decoration: none; }
+#content table th a:hover { text-decoration: underline; }
+#content table td.right { text-align: right; }
+#content table tr.even { background: #FFF!important; }
+#content table tr.even:hover,
+#content table tr.odd:hover { background: #E4E4E4!important; }
+#content table tr.odd { background: #F3F3F3; }
+#content table td { border: none; padding: 5px; vertical-align: top; }
+
+/* @end */
+
+/* @group Login Page Dialog */
+
+#account { background: #F3F3F3; }
+
+#account #wrapper { margin: 10em auto; width: 40em; }
+
+#account #box {
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  background: #FFF;
+  border: 0.1em solid #D3D3D3;
+  padding: 1em 2em;
+  margin: 0 0 1em 0;
+}
+
+#account #box h1 { margin: 0.5em 0; }
+#account #box ul { margin: 1.5em 0 0.5em 0; }
+#account #box li { margin: 1em 0; }
+
+#account #box input.text { font-size: 2em; padding: 0.25em; width: 17.25em; }
+#account #box input.button { margin: 0.5em 1em 0 0; }
+
+#account #footer { font-size: 0.9em; line-height: 1.8em; text-align: center; }
+#account #footer a { font-weight: bold; }
+
+/* @end */
+
+/* @group Pagination */
+
+.pagination {
+  border-top: 1px solid #D3D3D3;
+  margin: 1.5em auto;
+  padding: 1em 0;
+  text-align: center;
+}
+
+.pagination em { font-style: normal!important; }
+.pagination em,
+.pagination a { padding: 3px 5px; text-decoration: none; }
+.pagination a:hover,
+.pagination em { background: #000; color: #FFF; }
+
+.pagination span.disabled { color: #D3D3D3; margin: 2px; padding: 2px 3px; }
+
+.pagination .previous_page { float: left; }
+.pagination .next_page { float: right; }
+
+/* @end */
+
+/* @group Rails errors and flashes */
+
+#errorExplanation,
+.alert,
+.notice {
+  padding: 0.8em;
+  margin: 1em 0;
+  border: 1px solid #ddd;
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+  line-height: 1.5em;
+}
+
+#errorExplanation p,
+#errorExplanation li,
+#errorExplanation h3 {
+  color: #D12F19;
+}
+
+#errorExplanation h3 { margin: 5px 0 0 0; }
+
+#errorExplanation ul { margin: 10px 0 0 20px!important; }
+
+#errorExplanation,
+.alert { background: #FBE3E4; border-color: #FBC2C4; color: #D12F19; }
+.alert a { color: #D12F19; text-decoration: underline; }
+
+.notice { background: #FFF6BF; border-color: #FFD324; color: #817134; }
+.notice a { color: #817134; text-decoration: underline; }
+
+.fieldWithErrors label { color: #CD0A0A;}
+.fieldWithErrors input { background: #FEF8F6; }
+
+#errorExplanation ul { margin: 1em 1.5em; }
+#errorExplanation ul li { list-style: square!important; margin: 0!important; }
+
+/* @end */
+
+/* Boxes */
+
+.box {
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  background: #FFF;
+  border: 1px solid #AAA;
+  margin: 1em 0;
+  padding: 0.5em 1em ;
+}
+
+.box h3 { margin: 0.5em 0!important; }
+
+/* @group Hacks */
+
+.clear { clear: both; }
+.box_relationships { margin-top: 2.5em; }
+
+/* @end */
+
+/* @group Filters */
+
+#content .filters {
+  border-top: 1px solid #D3D3D3;
+  border-bottom: 1px solid #D3D3D3;
+  height: 2em;
+  margin: 0 0 1em 0;
+  padding: 1em 0;
+}
+
+#content .filters ul { margin: 0; }
+#content .filters ul li { float: left; list-style: none; margin: 0 1em 0 0; }
+
+/* @end */
+
+/* @group Search */
+
+#search { float: right; }
+#search input { font-size: 1em; padding: 3px; }
+
+/* @end */
+
+/* @group Misc */
+
+ul.predefined_filters {
+  margin: 1em 0 0.5em 0!important;
+}
+
+ul.predefined_filters li {
+  display: inline;
+  margin: 0 0.5em 0 0;
+}
+
+.actions {
+  font-size: 0.9em;
+  margin: 0.5em 0;
+  height: 1em;
+}
+
+/* @end */

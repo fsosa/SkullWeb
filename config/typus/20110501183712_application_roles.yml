@@ -1,0 +1,9 @@
+# Typus Roles Configuration File
+#
+# Use the README file as a reference to customize settings.
+
+admin:
+  HouseJob: create, read, update, delete
+  Reservation: create, read, update, delete
+  User: create, read, update, delete
+  UserHj: create, read, update, delete

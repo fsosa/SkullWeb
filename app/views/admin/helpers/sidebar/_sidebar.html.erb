@@ -1,0 +1,16 @@
+<% resources.each do |key, value| %>
+
+    <%
+      klass = key.typus_constantize
+      admin_items_path = { :controller => "/admin/#{klass.to_resource}" }
+    %>
+
+    <li><%= link_to klass.model_name.human.pluralize, admin_items_path %>
+        
+        <% if @resource.model_name.eql?(key) %>
+         <% value.each do |v| %>
+            <br /> &ndash; <%= v %>
+          <% end %>
+        <% end %>       
+    </li>
+  <% end %>
