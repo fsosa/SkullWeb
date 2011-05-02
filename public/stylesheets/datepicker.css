@@ -83,7 +83,7 @@ div.datePicker tfoot th.drag-enabled,
 div.datePicker thead th.drag-enabled,
 div.datePicker thead th.drag-enabled span
         {
-        cursor:move;
+        //cursor:move;
         }
 /* The iframe hack to cover selectlists in Internet Explorer <= v6 */
 iframe.iehack
@@ -288,7 +288,7 @@ div.datePicker table tbody th.date-picker-week-header
         }
 div.datePicker table thead th.date-picker-week-header
         {
-        cursor:help;
+        //cursor:help;
         border:0 none;
         padding:0 0 0.2em 0;
         }
@@ -308,21 +308,21 @@ div.datePicker table tbody td.date-picker-unused
         {
         background:#fff url(../media/backstripes.gif);
         border-color:#dcdcdc;          
-        cursor:default !important;
+        //cursor:default !important;
         }
 
 /* The TH cell used to display the "month, year" title */
 div.datePicker table thead th.date-picker-title
         {
         width:auto;
-        height:auto;
+        height:12px;
         padding:0.4em 0;
         }
 /* The "mon tue wed etc" day header styles */
 div.datePicker table thead th.date-picker-day-header
         {
         text-transform:lowercase;
-        cursor:help;
+        //cursor:help;
         height:auto;
         }
 /* The "todays date" style */
@@ -346,7 +346,7 @@ div.datePicker table thead th.date-picker-highlight
 div.datePicker table tbody td.date-picker-hover
         {
         background:#fff url(../media/bg_header.jpg) no-repeat 0 0;
-        cursor:pointer;
+        //cursor:pointer;
         border-color:rgb(100,130,170) !important;
         color:rgb(100,130,170); 
         text-shadow: 0px 1px 1px #fff;                
