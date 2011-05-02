@@ -1,7 +1,18 @@
-<%
-  page_title = @resource.model_name.human.pluralize
+<%  
+  page_title = @resource.model_name.human.pluralize.titleize
   title(page_title)
 %>
+
+<% if @resource.model_name.human.pluralize == 'House jobs' %>
+	<% page_title = "Modify House Job Defintions" %>
+<% elsif @resource.model_name.human.pluralize == 'Reservations' %>
+	<% page_title = "Modify Room Reservations" %>
+<% elsif @resource.model_name.human.pluralize == 'Users' %>
+	<% page_title = "Modify Users" %>
+<% else %>
+	<% page_title = "Modify Assigned House Jobs" %>
+<% end %>
+<% title(page_title) %>
 
 <% content_for :sidebar, build_sidebar %>
 
@@ -17,6 +28,7 @@
 <ul class="predefined_filters">
   <% predefined_filters.each do |filter, action, scope| %>
     <li><%= link_to Typus::I18n.t(filter), params.dup.cleanup.merge(:action => action) %> (<%= @resource.send(scope).count %>)</li>
+	<li><%= link_to "Create new #{@resource.model_name.human.titleize}", "/admin/#{@resource.to_resource}/new" %></li>
   <% end %>
 </ul>
 
