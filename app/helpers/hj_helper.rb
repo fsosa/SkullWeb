@@ -1,16 +1,18 @@
 module HjHelper
 
 def setscurrent(due_year, due_month, due_day)
-	@currentweek
 	year=due_year
 	month=due_month
 	day=due_day
 	while true do
 		if Time.local(year, month, day).wday == 1
-			@currentweek="#{Time.local(year, month, day).strftime("%B")}" + " "+ "#{Time.local(year, month, day).strftime("%d")}"
+			@currentmonth="#{Time.local(year, month, day).strftime("%B")}"
+			@currentmonthshort="#{Time.local(year, month, day).strftime("%b")}"
+			@currentday="#{Time.local(year, month, day).strftime("%d")}"
+			@currentyear="#{Time.local(year, month, day).strftime("%Y")}"
 			break
 		end
-		if day == 1
+		if day <= 1
 			if month == 1
 				month =12
 			else
@@ -29,8 +31,7 @@ def setscurrent(due_year, due_month, due_day)
 			day=day.to_i - 1
 		end
 	end
-	puts Time.local(year, month, day).strftime("%d")
-	return @currentweek
+	return @currentmonth, @currentday, @currentyear, @currentmonthshort
 end
 
 

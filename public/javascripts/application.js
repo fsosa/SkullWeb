@@ -39,32 +39,32 @@ $(document).ready(function(){
 		
 
 	});		
-	
 	$(".my_row").bind('click', function(){
 		$.ajax({
 			url: '/hj/completeJob', 
 			data: {"desc":$(this).children("#my_job").html()},
 			success: function(){console.log("job changed")},
 			});});
-	
+	var time
 	$("#prev_click").bind('click', function(){
 		$.ajax({
+			dataType: "text",
 			url: '/hj/weekChange', 
-			data: {"sub": "prev"},
-			success: function(){console.log("prev");},
+			data: {"sub": "prev", "time" : time},
+			success: function(response,stuff,thing){console.log(response); $("#hj_week").html("Week of "+response);},
 			});});
 	
 	$("#this_click").bind('click', function(){
 		$.ajax({
 			url: '/hj/weekChange', 
 			data: {"sub": "this"},
-			success: function(){console.log("this");},
+			success: function(response,stuff,thing){console.log("this");},
 			});});
 	$("#next_click").bind('click', function(){
 		$.ajax({
 			url: '/hj/weekChange', 
 			data: {"sub": "next"},
-			success: function(){console.log("next");},
+			success: function(response){console.log("next");},
 			});});
 	// RESERVE TABLE REVEAL COMMENTS
 

@@ -10,7 +10,7 @@
 
   <%= favicon_link_tag %>
 
-  <title><%= Typus.admin_title %> &mdash; <%= yield :title %></title>
+  <title>SkullWeb</title>
 
   <%= stylesheet_link_tag "/vendor/typus/stylesheets/reset",
                           "/vendor/jquery-ui-1.8.9.custom/css/ui-lightness/jquery-ui-1.8.9.custom.css",
@@ -19,6 +19,7 @@
                           "/vendor/typus/stylesheets/application" %>
 
   <%= yield :stylesheets -%>
+  <%= stylesheet_link_tag "styles.css" %>
 
   <%= javascript_include_tag "/vendor/jquery-ui-1.8.9.custom/js/jquery-1.4.4.min.js",
                              "/vendor/jquery-ui-1.8.9.custom/js/jquery-ui-1.8.9.custom.min.js",
@@ -38,24 +39,43 @@
 <body>
 
   <div id="main">
+		<div id="header">   		
+			<h1>
+					<%= image_tag "crest.png", :id=>"crest", :height=>"120px" %>
+				<a href="/">SkullWeb</a><span style="color:white;"> / Admin Panel
+				</span>
+			</h1>
+			
+		</div>
 
-      <div id="header">        
-        <h1> <a href="/">SkullWeb</a> <span>/ Admin Panel</span></h1>
-      </div>
+		<div id="notice"><%= notice %></div>
 
-      <div id="main_nav">
-        <ul>
-          <li>
-      			<a href="/hj" <%= activate("hj") %> >House Jobs</a>
-      		</li>
-          <li>
-      			<a href="/room" <%= activate('room') %> >Room Reservations</a>
-      		</li>
-      		<li>
-      			<a href="/admin" class="active" <%= activate('admins') %> >Admin Panel</a>
-      		</li>
-        </ul>
-      </div>
+		<div id="main_nav">
+			<ul>
+				<li>
+					<a href="/hj" >House Jobs</a>
+				</li>
+				
+				<li>
+					<a href="/room">Room Reservations</a>
+				</li>
+				<li>
+
+					<a href="/admin/house_jobs" class="active">Admin Panel</a>
+
+				</li>
+
+				<li style="float:right;">
+						<%= link_to "Logout", :logout %></li>	
+				<li style="float:right;"> 
+				</li> 
+				<li style="float:right;">
+						<%= link_to "Register a New User", new_user_path %></li>
+				</li>
+			</ul>
+			
+		</div>
+	
 
      <div id="secondary_nav">
           <ul><%= yield :sidebar %></ul>

@@ -69,7 +69,6 @@ body {
     display: block;
     padding: 10px 20px;
     color: #333;
-    text-shadow: 1px 1px 1px #ccc;
     font-size: 12px;
     text-decoration: none;
 }
@@ -85,22 +84,15 @@ body {
 
 #secondary_nav {
     background: #fff;
-    margin-bottom: 20px;
     display: table;
     width: 100%;
 }
 
-#secondary_nav ul {
-    padding: 20px 30px;
-}
 
 #secondary_nav li {
-    border-right: 1px solid #ccc;
-    display: table-cell;
+    display: inline-block;
     vertical-align: top;
     height: 100%;
-    margin: 10px;
-    padding: 0 25px;
 }
 
 #secondary_nav ul li a {

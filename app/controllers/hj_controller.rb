@@ -20,19 +20,32 @@ def index
   if @newtime == nil
 	@newtime = Time.now
   end
-  @week_thing = help.setscurrent(@newtime.year, @newtime.month, @newtime.day)
+  puts @newtime
+  @week_thing = help.setscurrent(@newtime.year, @newtime.month, @newtime.day)[0]  + " " + help.setscurrent(@newtime.year, @newtime.month, @newtime.day)[1] 
 end
 
 def weekChange
+puts @newtime
+@newtime = params["time"]
+  if @newtime == nil
+	@newtime = Time.now
+  end
 	if params["sub"] == "prev"
-		puts "hello"
+	
+		old_month =help.setscurrent(@newtime.year, @newtime.month, @newtime.day)[0]
+		old_year =help.setscurrent(@newtime.year, @newtime.month, @newtime.day)[3]
+		new_day = help.setscurrent(@newtime.year, @newtime.month, @newtime.day)[1].to_i - 1
+		@week_thing = help.setscurrent(old_year, old_month, new_day)[0] + " " + help.setscurrent(old_year, old_month, new_day)[1]
+		@newtime = Time.local(help.setscurrent(old_year, old_month, new_day)[2],help.setscurrent(old_year, old_month, new_day)[3], help.setscurrent(old_year, old_month, new_day)[1])
+		puts @newtime
 	elsif params["sub"] == "this"
 		puts "worked"
 	elsif params["sub"] == "next"
 		puts "you suck"
 	end
+	puts @week_thing.to_s
 	respond_to do |format|
-		format.xml { render :text => "YOOO"}
+		format.xml { render :text => @week_thing.to_s, :text =>@newtime}
 	end
 end
 

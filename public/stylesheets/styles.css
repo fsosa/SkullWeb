@@ -74,15 +74,12 @@ body {
 /* #### SECONDARY NAV #### */
 
 #secondary_nav {
-    background: #eee;
-    margin-bottom: 20px;
 }
 #secondary_nav ul {
     overflow: auto;
 }
 #secondary_nav ul li {
     list-style: none;
-    float: left;
 }
 #secondary_nav ul li a {
     display: block;
@@ -352,4 +349,9 @@ float:none;
 
 #plus-minus{
 	vertical-align: text-bottom;
+}
+
+
+#created_at {
+vertical-align: text-top;
 }

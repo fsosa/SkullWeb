@@ -5,12 +5,15 @@
       admin_items_path = { :controller => "/admin/#{klass.to_resource}" }
     %>
 
-    <li><%= link_to klass.model_name.human.pluralize, admin_items_path %>
-        
-        <% if @resource.model_name.eql?(key) %>
-         <% value.each do |v| %>
-            <br /> &ndash; <%= v %>
-          <% end %>
-        <% end %>       
+    <li>
+	<% if klass.model_name.human.pluralize == 'Reservations' %>
+		<%= link_to 'Modify Room Reservations', admin_items_path %>
+	<% elsif klass.model_name.human.pluralize == 'User hjs' %>
+		<%= link_to 'Modify Assigned House Jobs', admin_items_path %>
+	<% elsif klass.model_name.human.pluralize == 'Users' %>
+		<%= link_to 'Modify Users', admin_items_path %>
+	<% else %>
+		<%= link_to "Modify House Job Definitions", admin_items_path %> 
+	<% end %>    
     </li>
   <% end %>
