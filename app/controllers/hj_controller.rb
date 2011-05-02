@@ -1,41 +1,16 @@
 
+def help
+    HJHelper.instance
+  end
+
+  class HJHelper
+    include Singleton
+    include ActionView::Helpers::HjHelper
+  end
 class HjController < ApplicationController
 
 #/GET/hj
 @newtime
-def setscurrent(due_year, due_month, due_day)
-	year=due_year
-	month=due_month
-	day=due_day
-	while true do
-		if Time.local(year, month, day).wday == 1
-			@currentmonth="#{Time.local(year, month, day).strftime("%B")}"
-			@currentmonthshort="#{Time.local(year, month, day).strftime("%b")}"
-			@currentday="#{Time.local(year, month, day).strftime("%d")}"
-			@currentyear="#{Time.local(year, month, day).strftime("%Y")}"
-			break
-		end
-		if day <= 1
-			if month == 1
-				month =12
-			else
-				month.to_i - 1
-			end
-			if month%2
-				if month ==2
-					day = 28
-				else
-					day= 30
-				end
-			else
-				day =31
-			end
-		else
-			day=day.to_i - 1
-		end
-	end
-	return @currentmonth, @currentday, @currentyear, @currentmonthshort
-end
 def index
   #this is a helper method (see /app/helpers/application.rb)
   #which makes sure that a user is logged in in order to see the page
@@ -47,7 +22,7 @@ def index
 	@newtime = Time.now
   end
   puts @newtime
-  @week_thing = setscurrent(@newtime.year, @newtime.month, @newtime.day)[0]  + " " + setscurrent(@newtime.year, @newtime.month, @newtime.day)[1] 
+  @week_thing = help.setscurrent(@newtime.year, @newtime.month, @newtime.day)[0]  + " " + help.setscurrent(@newtime.year, @newtime.month, @newtime.day)[1] 
 end
 
 def weekChange
@@ -58,11 +33,11 @@ puts @newtime
   end
 	if params["sub"] == "prev"
 	
-		old_month =setscurrent(@newtime.year, @newtime.month, @newtime.day)[0]
-		old_year =setscurrent(@newtime.year, @newtime.month, @newtime.day)[3]
-		new_day = setscurrent(@newtime.year, @newtime.month, @newtime.day)[1].to_i - 1
-		@week_thing = setscurrent(old_year, old_month, new_day)[0] + " " + setscurrent(old_year, old_month, new_day)[1]
-		@newtime = Time.local(setscurrent(old_year, old_month, new_day)[2],setscurrent(old_year, old_month, new_day)[3], setscurrent(old_year, old_month, new_day)[1])
+		old_month =help.setscurrent(@newtime.year, @newtime.month, @newtime.day)[0]
+		old_year =help.setscurrent(@newtime.year, @newtime.month, @newtime.day)[3]
+		new_day = help.setscurrent(@newtime.year, @newtime.month, @newtime.day)[1].to_i - 1
+		@week_thing = help.setscurrent(old_year, old_month, new_day)[0] + " " + help.setscurrent(old_year, old_month, new_day)[1]
+		@newtime = Time.local(help.setscurrent(old_year, old_month, new_day)[2],help.setscurrent(old_year, old_month, new_day)[3], help.setscurrent(old_year, old_month, new_day)[1])
 		puts @newtime
 	elsif params["sub"] == "this"
 		puts "worked"
