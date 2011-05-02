@@ -58,7 +58,7 @@ def list_jobs
   #ruby symbols (annoted with ':') are basically lightweight strings that 
   #allow the string to be reused a lot without memory waste
   
-  userhjs = UserHj.find(:all)
+  userhjs = UserHj.find(:all, :order => "due")
   
   #calling .each on a iterable variable is the exact same as 
   #doing a for loop on every item in the iterable. 
