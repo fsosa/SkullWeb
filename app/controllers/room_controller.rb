@@ -46,14 +46,19 @@ def create
   
   if params[:timestart2] == ""
 	 minute1 = 00
+	 else minute1 = params[:timestart2]
 	end
   if params[:timeend2] == ""
   minute2 = 00
+  else minute2 = params[:timeend2]
   end
   date1 =Time.parse("#{params[:d1]}"+"-"+"#{params[:m1]}"+"-"+"#{params[:y1]}")
   date2 =Time.parse("#{params[:d2]}"+"-"+"#{params[:m2]}"+"-"+"#{params[:y2]}")
   time1 =Time.parse("#{hour1}"+":"+"#{minute1}"+"#{params[:timestart3]}",date1)
   time2 =Time.parse("#{hour2}"+":"+"#{minute2}"+"#{params[:timeend3]}",date2)
+ 
+ puts time1
+ puts time2
  
   @userrr = Reservation.new(:reserved_user_id =>current_user.id, :name=>params[:name][:size10],
 	:location=>params[:locations], :start_date=>date1, :end_date=>date2, 

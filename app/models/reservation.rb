@@ -21,9 +21,9 @@ class Reservation < ActiveRecord::Base
 validates :reserved_user_id, :presence => true
 validates :name, :presence => true
 validates :location, :presence => true
-validates :start_time, :presence => true, :uniqueness => {:scope => [:start_date, :end_date]}
-validates :end_time, :presence => true, :uniqueness => {:scope => [:start_date, :end_date]}
-validates :start_date, :presence => true, :uniqueness => {:scope => [:start_time, :end_time]}
-validates :end_date, :presence => true, :uniqueness => {:scope => [:start_time, :end_time]}
+validates :start_time, :presence => true
+validates :end_time, :presence => true
+validates :start_date, :presence => true
+validates :end_date, :presence => true
 
 end

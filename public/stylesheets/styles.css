@@ -4,14 +4,10 @@
 }
 
 body {
-<<<<<<< HEAD
-    background: #ccc;
-	font-style: "Curlz MT";
-    //font: 13px/1.4em "Helvetica Neue", "Helvetica", "Arial", sans-serif;
-=======
+
     background: black;
     font: 13px/1.4em "Helvetica Neue", "Helvetica", "Arial", sans-serif;
->>>>>>> a58b8beb6837250edba971bbb8a81c60572695ac
+
 }
 
 #main {
@@ -48,11 +44,9 @@ body {
 /* #### MAIN NAV #### */
 
 #main_nav {
-<<<<<<< HEAD
-    background: gold;
-=======
+
     background: #907940;
->>>>>>> a58b8beb6837250edba971bbb8a81c60572695ac
+
 }
 #main_nav ul {
     overflow: auto;
@@ -64,12 +58,11 @@ body {
 #main_nav ul li a {
     display: block;
     padding: 10px 20px;
-<<<<<<< HEAD
-    color: black;
+
     text-shadow: 1px 1px 1px #ccc;
-=======
+
     color: #333;
->>>>>>> a58b8beb6837250edba971bbb8a81c60572695ac
+
     font-size: 12px;
     text-decoration: none;
 }
@@ -290,7 +283,7 @@ background-color: rgb(255, 221, 221);
 .y{width:3em;}
 #spacer{width:5em;}
 .time{width: 2em;}
-<<<<<<< HEAD
+
 #descr_size20{width: 30em; height: 6em;}
 .reserve_table{font-size: 1.2em; text-align: center; float: right; margin-left: auto; margin-right: auto; border-style: outset; border-color: gold; 
 					 padding: 0.5em 0.5em 0.5em 0.5em;}
