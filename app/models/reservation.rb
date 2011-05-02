@@ -25,5 +25,18 @@ validates :start_time, :presence => true
 validates :end_time, :presence => true
 validates :start_date, :presence => true
 validates :end_date, :presence => true
+validate :non_paradox
+
+
+def non_paradox
+	if start_time > end_time
+		puts "PPPP..PPP...PARADOX!"
+		errors.add(:start_time, "paradox")
+	end
+end
+
+
+	
+
 
 end

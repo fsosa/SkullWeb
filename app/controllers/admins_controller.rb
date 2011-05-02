@@ -28,10 +28,10 @@ class AdminsController < ApplicationController
 	#...and then try to save it to the database
     respond_to do |format|
       if @userhj.save
-        format.html { redirect_to(:action => :index, :notice => 'Succesfully assigned job') }
+        format.html { redirect_to({:action => :index}, {:notice => 'Succesfully assigned job'}) }
         format.xml  { render :xml => @userhj, :status => :created, :location => @userhj }
       else
-        format.html { redirect_to(:root, :notice => 'Duplicate job assignment') }
+        format.html { redirect_to({:action=> :index}, {:notice => 'That job was already assigned to the same user.'}) }
         format.xml  { render :xml => @user.errors, :status => :unprocessable_entity }
       end
     end
