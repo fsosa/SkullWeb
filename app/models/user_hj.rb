@@ -16,7 +16,7 @@ class UserHj < ActiveRecord::Base
 
 validates :assigned_user_id, :presence => true
 validates :hj_id, :presence => true, :uniqueness => {:scope => [:assigned_user_id, :due]}
-
+validates :due, :presence => true
 
 def username_desc
   name = User.find(assigned_user_id).fullname

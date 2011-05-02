@@ -40,5 +40,6 @@ module Skullweb
     config.filter_parameters += [:password]
 	
 	config.gem "calendar_date_select"
+	config.autoload_paths << File.join(config.root, "lib")
   end
 end

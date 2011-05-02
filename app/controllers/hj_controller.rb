@@ -1,3 +1,4 @@
+
 def help
     HJHelper.instance
   end
@@ -58,7 +59,7 @@ def weekChange
   #ruby symbols (annoted with ':') are basically lightweight strings that 
   #allow the string to be reused a lot without memory waste
   
-  userhjs = UserHj.find(:all)
+  userhjs = UserHj.find(:all, :order => "due")
   
   weekuserhjs = []
   userhjs.each do |uhj|

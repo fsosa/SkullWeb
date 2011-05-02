@@ -16,9 +16,9 @@ def delete
 	
 	respond_to do |format|
 		if del.delete
-			format.html {redirect_to ({:action=>:index},{:notice => "Your event was succesfully deleted"})}
+			format.html {redirect_to({:action => :index},{:notice => "Your event was succesfully deleted."})}
 		else
-			format.html {redirect_to ({:action=>:index},{:notice=> "Your event was not deleted. Please try again."})}
+			format.html {redirect_to({:action=>:index},{:notice=> "Your event was not deleted. Please try again."})}
 		end
 	end
 end

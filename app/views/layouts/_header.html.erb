@@ -3,7 +3,7 @@
 	
 	<h1>
 			<%= image_tag "crest.png", :id=>"crest", :height=>"120px" %>
-		<a href="/">SkullWeb</a><span style="color:white;"> 
+		<a>SkullWeb</a><span style="color:white;"> 
 		<% if params[:controller] == 'hj' -%>
 			/ House Jobs
 		<% elsif params[:controller] == 'room'-%>
@@ -42,7 +42,11 @@
 			<% if current_user -%>
 				<%= link_to "Logout", :logout %></li>				
 		<li style="float:right;"> 
-			<%= link_to "#{current_user.first_name} #{current_user.last_name}", edit_user_path(current_user.id), :class=>activate('users') %>
+			<% if params[:action] == 'new' %>
+				<%= link_to "Register a New User", new_user_path, :class=>"active" %>
+			<% else %>
+				<%= link_to "#{current_user.first_name} #{current_user.last_name}", edit_user_path(current_user.id), :class=>activate('users') %>
+			<%end%>
 		</li>
 			<% else -%>    
 		<li style="float:right;">
