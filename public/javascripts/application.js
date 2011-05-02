@@ -49,19 +49,22 @@ $(document).ready(function(){
 			
 	
 	// RESERVE TABLE REVEAL COMMENTS
-	$(".rsvp_table  a").click(function(){		
-		$(this).parent().parent().next("tr.ev_info").toggle();
-		var src = $(this).children().attr("src"); 
-		
+
+	
+	$(".rsvp_table  tr").click(function(){		
+		$(this).next("tr.ev_info").toggle();
+		var src = $(this).children().children().children().attr("src");
+
 		if (src == "/images/plus.png"){
+
 			src = "/images/minus.png";
 		} else {
 			src = "/images/plus.png";
 		}
 		
-		$(this).children().attr("src", src);
+		$(this).children().children().children().attr("src", src);
 		
-	});
+	});	
 
 	// WILL NEED TO TAKE THIS OUT LATER
 	$("#rr_form").submit(function() {
@@ -73,6 +76,18 @@ $(document).ready(function(){
 		console.log(this);
 		alert("You reserved the Chapter room for Poker from 1:00 a.m to 4:00 a.m.");
 		return false;
-	});		
+	});	
+
+	$("#header").click(function(){
+		if ($("#login_div").is(":hidden")) {
+			$("#login_div").animate({ width: 635});
+			setTimeout(function(){
+				$("#login_div").fadeIn();},250);
+		} else {
+			$("#login_div").fadeOut();
+			setTimeout(function(){
+				$("#login_div").animate({ width: 300 })},250);
+		} return false;
+}) 	
 	
 });

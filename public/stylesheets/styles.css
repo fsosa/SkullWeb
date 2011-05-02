@@ -58,9 +58,6 @@ body {
 #main_nav ul li a {
     display: block;
     padding: 10px 20px;
-
-    text-shadow: 1px 1px 1px #ccc;
-
     color: #333;
 
     font-size: 12px;
@@ -288,6 +285,7 @@ background-color: rgb(255, 221, 221);
 .reserve_table{font-size: 1.2em; text-align: center; float: right; margin-left: auto; margin-right: auto; border-style: outset; border-color: #907940; border-width: 15px;
 					 padding: 0.5em 0.5em 0.5em 0.5em;}
 .reserve_table td{padding:0.5em;}
+
 #locations{width: 10em;}
 #header_rr{}
 #reservation_submit{font-size: 0.8em; padding:0.1em 0.1em 0.1em 0.1em;}
@@ -316,6 +314,10 @@ float:right;
 }
 #2prime{
 float:right;
+}
+
+#profile_table label{
+float:none; 
 }
 
 .button {
